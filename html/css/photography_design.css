@@ -1,0 +1,122 @@
+#chapter_photography h2{
+    font-size:2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#chapter_photography a.photo_box_button{
+    display: block;
+    width:100%;
+    height: 100%;
+    color: var(--white-primary);
+    transition: all .3s ease;
+}
+
+#chapter_photography .photo_card_box{
+    width:100%;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all .3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: url(../images/card_landscape.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#chapter_photography .photo_card_info{
+    width:90%;
+    padding: 30px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    order: 0;
+}
+
+#chapter_photography .photo_card_info p:first-child{font-size: 1.1rem;}
+
+#chapter_photography .photo_card_info p.photo_summary{
+    font-size:1.1rem;
+    line-height: 1.7;
+}
+
+#chapter_photography .photo_card_img{
+    width:100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    order: 1;
+    padding:10px;
+    box-sizing: border-box;
+}
+
+#chapter_photography .photo_card_img img{
+    display: block;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#chapter_photography .photo_card_button{
+    background: rgba(255, 66, 0, 0.58);
+    border-radius: 35px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 66, 0, 0.25);
+    padding:4% 15%;
+    font-size:1.1rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+@media screen and (max-width: 956px) and (max-height: 667px) and (orientation: landscape){
+    #chapter_photography .photo_card_img{
+        aspect-ratio: 1 / 1;
+        order: 0;
+    }
+    #chapter_photography .photo_card_box{
+        height: auto;
+        flex-direction: column;
+    }
+    #chapter_photography .photo_card_info{
+        width:100%;
+        align-items: center;
+        padding:20px 20px;
+        order: 1;
+    }
+}
+
+/* 當裝置寬度小於等於768px時 */
+@media (max-width:768px){
+    #chapter_photography h2{
+        font-size:1.8rem;
+        font-weight: 600;
+    }
+
+    #chapter_photography .photo_card_box{
+        height: auto;
+        flex-direction: column;
+    }
+
+    #chapter_photography .photo_card_info{
+        width:100%;
+        order:1;
+        justify-content: center;
+        align-items: center;
+        gap:10px;
+        padding:20px;
+    }
+
+    #chapter_photography .photo_card_img{
+        order: 0;
+        aspect-ratio: 1 / 1;
+        padding: 0px;
+        height: 230px;
+    }
+}

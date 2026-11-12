@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Rouge+Script&family=Syne:wght@400..800&display=swap');
+:root {
+    /* 品牌顏色 */
+    --orange:#FF4200;
+    --green:#72CF26;
+    --blue:#314CCF;
+
+    /* 頁面輔助色 */
+    --yellow:#fff66e;
+    --milk-tea-lite:#FFDBB5;
+    --red:#e42f2f;
+
+    /* 黑色系 */
+    --black-primary:#1A1A1A;
+    --black-section-primary:#2E2E2E;
+    --black-dark-primary:#111111;
+    --gray-primary:gray;
+    --gray-secondary:#999999;
+    --gray-lite:#c9c9c9;
+    --white-primary:#F8F8FA;
+
+    /* 字級 */
+    --font-h1:clamp(8rem, 12vw, 8rem);
+    --font-h2:clamp(3rem, 6vw, 3rem);
+    --font-h3:clamp(2rem, 4vw, 2rem);
+
+    /* 字體 */
+    --font-family-ch:"Noto Sans TC","微軟正黑體";
+    --font-family-en:"Syne","Arial";
+
+    /* 字重 */
+    --font-weight-normal:normal;
+    --font-weight-bold:bold;
+
+    /* 字體陰影 */
+    --font-shadow:0 0 6px rgba(0,0,0,0.6);
+    --font-shadow-light:2px 2px 2px #fff, -2px -2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff;
+
+    /* 章節區塊 */
+    --secotion-block:1200px;
+
+    /* 導覽列高度（含上方 20px 間距） */
+    --header-h:84px;
+    
+    /* grid 雙欄 */
+    --grid-column-1:repeat(1, 1fr);
+    --grid-column-2:repeat(2, 1fr);
+    --grid-column-3:repeat(3, 1fr);
+    --grid-column-4:repeat(4, 1fr);
+    --grid-gap-20:20px;
+    --grid-gap-30:30px;
+    --grid-gap-40:40px;
+    --grid-gap-60:60px;
+}
+
+/* 強制所有元素都使用 border-box */
+*, *:before, *:after {box-sizing: border-box;}
+
+/* 網頁元素 */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+    transition: all .3s ease-in-out;
+}
+
+body {
+    font-family: "Noto Sans TC", "Syne", sans-serif;
+    font-size:15px;
+    background: var(--black-primary);
+    color: var(--white-primary);
+    overflow-x: hidden;
+    line-height: normal;
+    transition: all .3s ease;
+}
+
+/* 字級 */
+h1{
+    font-size: var(--font-h1);
+    font-weight: 700;
+    line-height: 1;
+    display: inline-block;
+    transform: scaleY(0.8);
+}
+
+h2{
+    font-size: var(--font-h2);
+    font-weight: 500;
+}
+
+.hero_sub_title{font-size: 1.2rem;}
+
+p{
+    font-weight: 400;
+}
+
+.font_en{
+    font-family: var(--font-family-en);
+    font-weight:800;
+    line-height: 1;
+}
+
+.icon_box{width:30px; height: 30px;}
+
+/* 字重 */
+.bold{ font-weight: var(--font-weight-bold);}
+.normal{ font-weight: var(--font-weight-normal);}
+
+/* 按鈕 */
+a{text-decoration: none;}
+
+img{display: block; width:100%; height: auto;}
+
+/* 文字顏色 */
+.color_black{color: var(--black-primary);}
+.color_gray{color: var(--gray-primary);}
+.color_gray_lite{color: var(--gray-secondary);}
+.color_orange{color: var(--orange);}
+.color_red{color: var(--red);}
+.color_yellow{color: var(--yellow);}
+
+.text_shadow{text-shadow: var(--font-shadow);}
+
+/* 背景顏色 */
+.background_color_orange_primary{background-color: var(--orange);}
+.background_color_orange_lite{background-color: var(--yellow);}
+.background_color_black_primary{background-color: var(--black-section-primary);}
+.background_color_black_footer{background-color: var(--black-dark-primary);}
+
+/* =========================================== */
+/* ================== 麵包屑 ================== */
+/* =========================================== */
+.breadcrumb ul.breadcrumb_info{margin:10px 0px 0px 0px;}
+
+ul.breadcrumb_info li {
+    display: inline;
+    font-size: 1rem;
+    line-height: 0px;
+    color: var(--gray-primary);
+}
+
+ul.breadcrumb_info li+li:before {
+    padding: 8px;
+    color: var(--white-primary);
+    content: "/\00a0";
+}
+
+ul.breadcrumb_info li a {
+    color: var(--gray-primary);
+    text-decoration: none;
+    font-family: "Syne", sans-serif;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+ul.breadcrumb_info li a:hover{color: var(--orange);}
+
+/* ========================================= */
+/* ================== 框架 ================== */
+/* ========================================= */
+/* section 容器 */
+#site_template .hero_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    padding:140px 0px 80px 0px;
+    width:100%;
+    height: auto;
+    text-shadow: var(--font-shadow);
+}
+
+/* section 容器，上下間距80px */
+#site_template .wrap_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:1200px;
+    margin:0 auto;
+    padding:80px 0px;
+    gap:30px;
+}
+
+#site_template .wrap_container{gap:60px;}
+#site_template .first_padding{padding:0px 0px 80px 0px;}
+
+/* ========================================= */
+/* ================== 容器 ================== */
+/* ========================================= */
+/* grid */
+.grid_column_2{grid-template-columns: var(--grid-column-2);}
+.grid_column_3{grid-template-columns: var(--grid-column-3);}
+.grid_gap_20{gap: var(--grid-gap-20);}
+.grid_gap_30{gap: var(--grid-gap-30);}
+.grid_gap_40{gap: var(--grid-gap-40);}
+.grid_gap_60{gap: var(--grid-gap-60);}
+
+#chapter_category .norm_case,
+#project_rayzephoto .norm_case,
+#project_card_design .norm_case,
+#chapter_photography .norm_case,
+#related_card_design .norm_case{
+    width:100%;
+    height: auto;
+    display: grid;
+}
+
+/* ============================================= */
+/* ================== 標題樣式 ================== */
+/* ============================================= */
+#site_template .title_board{
+    width:100%;
+    margin:0 auto;
+}
+
+#site_template .title_board ul.bar_wrap{
+    width:60%;
+    height: auto;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+#site_template .title_board ul.bar_wrap li.bar_item_subtitle{
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1;
+    font-family: var(--font-family-en);
+}
+
+#site_template .title_board ul.bar_wrap li.bar_item_icon{
+    width:55px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+#site_template .title_board ul.bar_wrap li.bar_item_icon img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#site_template .without_gap ul.bar_wrap{gap:0px;}
+#site_template .without_gap ul.bar_wrap li.bar_item_icon{margin-bottom:20px;}
+
+#site_template .title_board ul.bar_wrap li.bar_item_title{
+    font-size:4.6rem;
+    font-weight: 700;
+    line-height: 1;
+    transform: scaleY(0.8);
+}
+
+#site_template .title_board ul.bar_wrap li.bar_item_info p{
+    font-size:1.25rem;
+    line-height: 1.7;
+}
+
+/* 平面設計-短板視覺背景 */
+.portfolio_background{
+    background-image: url(../images/bg_grapic_design.webp);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 2050 / 390;
+}
+
+/* 攝影集-短板視覺背景 */
+.photography_background{
+    background-image: url(../images/bg_photography.webp);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 2050 / 390;
+}
+
+/* 網頁設計-短板視覺背景 */
+.webdesign_background{
+    background-image: url(../images/bg_webdesign.webp);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 2050 / 390;
+}
+
+/* ============================================= */
+/* ================== 專案版型 ================== */
+/* ============================================= */
+#chapter_hero{
+    width:100%;
+    height: auto;
+}
+
+#site_template .project_board_hero,
+#site_template .project_body{
+    width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* 專案橫幅 */
+#site_template .board_bannerbox{
+    width:100%;
+    height: auto;
+    aspect-ratio: 21 / 9;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#site_template .board_bannerbox img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+#site_template .board_bannerbox img.post_position{object-position: 0% 30%;}
+
+#site_template .project_title p{
+    font-size:2rem;
+    font-weight: 700;
+}
+
+/* ============================================= */
+/* ================== 雙欄區塊 ================== */
+/* ============================================= */
+#site_template .project_info{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.column_width_normal{width:50%;}
+
+/* 雙欄區塊：重點標題 */
+#site_template .text_titlebar{
+    width:100%;
+    height: auto;
+    border-left:5px solid var(--orange);
+    text-indent: 15px;
+}
+
+#site_template .text_titlebar::before{
+    content: '';
+    display: block;
+    width:5px;
+    height: 100%;
+    background-color: var(--orange);
+}
+
+#site_template .text_titlebar p {
+    font-size:1rem;
+    font-weight: 700;
+}
+
+#site_template .text_titlebar p:first-child{font-weight: 800;}
+#site_template .text_titlebar p:last-child{font-size:2rem;}
+#site_template .project_item_info .info_content p{
+    font-size:1.3rem;
+    font-weight: 400;
+    margin-bottom:30px;
+    line-height: 1.7;
+}
+
+#site_template .project_item_info .without_group p:last-child{margin-bottom:0px;}
+
+#site_template .info_group ul{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#site_template .info_group ul li p{
+    font-size:1.2rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+#site_template .info_group ul li p:first-child{font-weight:700;}
+
+/* ============================================== */
+/* ================== 單欄作品圖 ================== */
+/* ============================================== */
+#site_template .single_gallery{
+    width:100%;
+    aspect-ratio: 1200 / 800;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#site_template .single_gallery img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+}
+
+/* ============================================== */
+/* ================== 貼文作品圖 ================== */
+/* ============================================== */
+#site_template .media_post_box{
+    width:100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s ease;
+}
+
+#site_template .media_post_box img{
+    display: block;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 名片設計 */
+#site_template .business_card_box{
+    width:100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s ease;
+}
+
+#site_template .business_card_box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ========================================= */
+/* ================== 按鈕 ================== */
+/* ========================================= */
+#chapter_category .card_category_box:hover,
+#chapter_photography a.photo_box_button:hover,
+#related_card_design a.related_card_button:hover{
+    transform: translateY(-10px);
+}
+
+#chapter_category a.category_card_button,
+#related_card_design a.related_card_button{
+    display: block;
+    width:100%;
+    height: inherit;
+    color: var(--white-primary);
+    transition: all .3s ease;
+}
+
+/* ========================================= */
+/* ================== 表尾 ================== */
+/* ========================================= */
+#wrap_footer{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    padding:40px;
+    background-color: var(--black-dark-primary);
+}
+
+#wrap_footer .content_box{
+    text-align: center;
+}
+
+#wrap_footer .footer_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: var(--secotion-block);
+    margin:0 auto;
+}
+
+/* 表尾品牌文案 */
+#wrap_footer .group_item:first-child{width:30%;}
+
+/* 表尾品牌標誌 */
+#wrap_footer .brand_icon{margin-bottom:10px;}
+
+#wrap_footer .brand_icon a{
+    display: block;
+    color: var(--white-primary);
+    font-size: 1.4rem;
+    font-family: var(--font-family-en);
+    font-weight: 700;
+}
+
+#wrap_footer .item_title{
+    font-size:1.3rem;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+#wrap_footer ul.item_linkbox{
+    display: block;
+}
+
+#wrap_footer .media_icon ul.item_linkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#wrap_footer .media_icon ul.item_linkbox li a img{filter: invert(46%) sepia(99%) saturate(5196%) hue-rotate(0deg) brightness(104%) contrast(109%);}
+#wrap_footer ul.item_linkbox li{padding:5px 0px;}
+
+#wrap_footer ul.item_linkbox li.item_description{
+    text-align: left;
+    line-height: 1.7;
+}
+
+#wrap_footer ul.item_linkbox li a{
+    display: block;
+    width:100%;
+    height: auto;
+    color: var(--gray-secondary);
+}
+
+#wrap_footer ul.item_linkbox li a img{
+    display: block;
+    width:25px;
+    height: auto;
+}
+
+#wrap_footer ul.item_linkbox li a:hover{
+    color: var(--orange);
+    transition: all .3s ease;
+}
+
+footer .copyright{
+    padding:20px 0px;
+    background-color: var(--black-dark-primary);
+    text-align: center;
+    border-top:1px solid var(--black-section-primary);
+    font-family: var(--font-family-en);
+    font-weight: 500;
+}
+
+/* 當裝置寬度小於等於1299px時 */
+@media (max-width:1299px) {
+    h1{font-size: 6rem;}
+    #site_template .wrap_container{width:95%;}
+    #site_template .project_info{flex-direction: column;}
+    #site_template .text_titlebar p {margin-bottom:10px;}
+    .column_width_normal{width:100%;}
+    #site_template .text_titlebar p {line-height: 1;}
+    #wrap_footer .footer_box{width:100%;}
+}
+
+@media screen and (max-width: 1080px) and (max-height: 1299px){
+    #chapter_photography .grid_column_2{grid-template-columns: var(--grid-column-1);}
+}
+
+/* 當螢幕寬度在 926px 以下（涵蓋大部分大尺寸 iPhone 橫向寬度）
+且螢幕高度在 450px 以下（代表它是扁扁的手機橫螢幕，排除 iPad）*/
+@media screen and (max-width: 956px) and (max-height: 667px) and (orientation: landscape){
+    #chapter_photography .photo_card_box{min-height: 350px;}
+    #chapter_photography .grid_column_2{grid-template-columns: var(--grid-column-2);}
+}
+
+/* 當裝置寬度小於等於768px時 */
+@media (max-width:768px){
+    h1{font-size: 4rem;}
+    .hero_sub_title{font-size:.9rem;}
+    #site_template .wrap_container{width:90%; padding:60px 0px;}
+    #site_template .hero_container{
+        height:auto;
+        padding:110px 0px 40px 0px;
+    }
+
+    #site_template .first_padding{padding:0px 0px 60px 0px;}
+    
+    /* 各頁面手機呈現欄數 */
+    #chapter_category .grid_column_2,
+    #chapter_photography .grid_column_2{grid-template-columns: var(--grid-column-1);}
+
+    #project_rayzephoto .grid_column_3{grid-template-columns: var(--grid-column-2);}
+    #project_card_design .grid_column_2{grid-template-columns: var(--grid-column-1);}
+    #project_card_design .grid_gap_60{gap: var(--grid-gap-30);}
+
+    #related_card_design .grid_column_3{grid-template-columns: var(--grid-column-1);}
+    #related_card_design .grid_gap_40{gap: var(--grid-gap-20);}
+
+    #site_template .title_board{width:100%;}
+    #site_template .title_board ul.bar_wrap{gap: 5px; width:100%;}
+    #site_template .title_board ul.bar_wrap li.bar_item_title{font-size:2.6rem;}
+    #site_template .title_board ul.bar_wrap li.bar_item_subtitle{font-size: .8rem;}
+    #site_template .title_board ul.bar_wrap li.bar_item_info p{
+        font-size:1rem;
+        line-height: 1.7;
+    }
+
+    #site_template .wrap_container{gap:20px;}
+    #site_template .project_body{gap:30px;}
+    #site_template .board_bannerbox .project_title p{
+        font-size:1.3rem;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    #site_template .text_titlebar p:first-child {font-size:.9rem;}
+    
+    #site_template .project_item_info .info_content p{font-size:1rem;}
+    #site_template .info_group ul{
+        width:100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    #site_template .project_title p{
+        font-size:1.4rem;
+        font-weight: 700;
+    }
+
+    #site_template .info_group ul li p{font-size:1rem;}
+    #site_template .text_titlebar p {line-height: .8;}
+    #site_template .text_titlebar p:last-child{
+        font-size:1.4rem;
+        line-height: 1;
+    }
+
+    #site_template .without_gap ul.bar_wrap{gap:0px;}
+    #site_template .without_gap ul.bar_wrap li.bar_item_icon{margin-bottom:20px;}
+
+    #wrap_footer{
+        padding:50px 20px 0px 20px;
+        margin:0 auto;
+    }
+    #wrap_footer .footer_box{
+        width:100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #wrap_footer .group_item{margin-bottom:50px;}
+    #wrap_footer .group_item:first-child{width:100%;}
+}

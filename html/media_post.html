@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/graphic_design.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adriannote、視覺設計師、品牌識別、平面設計、網頁設計、攝影紀錄">
+    <title>Adriannote｜社群圖文</title>
+</head>
+<body id="site_template" class="page_media">
+<!-- ========== Header ========== -->
+<header id="site_header" class="site_header">
+    <!-- 電腦版導覽列 -->
+    <nav class="nav_desktop" id="nav_desktop" aria-label="主選單">
+        <a class="nav_brand" href="#">Adriannote</a>
+        <ul class="nav_menu">
+            <li class="nav_item"><a class="nav_link" href="#">首頁</a></li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="brand_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_brand">品牌設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_brand">
+                    <li><a href="rayze_photo.html">睿氏設計</a></li>
+                    <li><a href="kiki_cafe.tml">木其咖啡</a></li>
+                    <li><a href="click_web.html">科技紫微網</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="web_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_campaign">網頁設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_campaign">
+                    <li><a href="ziwei_year.html">紫微流年運勢</a></li>
+                    <li><a href="fate_family.html">當全家人的命理師</a></li>
+                    <li><a href="worldcoffeeday.html">國際咖啡日</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="graphic_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="overlay_submenu_graphic">平面設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="overlay_submenu_graphic">
+                    <li><a href="media_post.html">社群圖文</a></li>
+                    <li><a href="card_design.html">名片設計</a></li>
+                    <li><a href="menu_design.html">型錄設計</a></li>
+                    <li><a href="poster_design.html">海報設計</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="photography.html" aria-haspopup="true" aria-expanded="false" aria-controls="overlay_submenu_photography">攝影集<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="overlay_submenu_photography">
+                    <li><a href="portrait_photography.html">人像攝影</a></li>
+                    <li><a href="still_photography.html">靜物攝影</a></li>
+                    <li><a href="food_photography.html">美食攝影</a></li>
+                    <li><a href="acitivity_photography.html">活動紀錄</a></li>
+                </ul>
+            </li>
+            <li class="nav_item"><a class="nav_link" href="contact.html">聯絡我</a></li>
+        </ul>
+    </nav>
+
+    <!-- 漢堡選單膠囊（捲動後與手機版顯示；手機版左側為品牌名稱，開啟後 MENU 變成 CLOSE） -->
+    <div class="nav_capsule" id="nav_capsule">
+        <a class="capsule_brand" href="#">Adriannote</a>
+        <button type="button" class="nav_toggle" id="nav_toggle" aria-expanded="false" aria-controls="nav_overlay" aria-label="開啟選單">
+            <span class="toggle_icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="toggle_label" aria-hidden="true"><span class="label_menu">MENU</span><span class="label_close">CLOSE</span></span>
+        </button>
+    </div>
+
+    <!-- 全螢幕選單 -->
+    <div class="nav_overlay" id="nav_overlay" role="dialog" aria-modal="true" aria-label="網站選單">
+        <div class="overlay_inner">
+            <a class="overlay_brand" href="#">Adriannote</a>
+            <div class="overlay_bottom">
+                <nav class="overlay_nav" aria-label="手機版主選單">
+                    <ul class="overlay_menu">
+                        <li class="overlay_item"><a class="overlay_link" href="#">首頁</a></li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="brand_design.html">品牌設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開品牌設計子選單" aria-expanded="false" aria-controls="overlay_submenu_brand"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_brand">
+                                <li><a href="rayze_design.html">睿氏設計</a></li>
+                                <li><a href="kiki_cafe.html">木其咖啡</a></li>
+                                <li><a href="click_web.html">科技紫微網</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="web_design.html">網頁設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開網頁設計子選單" aria-expanded="false" aria-controls="overlay_submenu_campaign"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_campaign">
+                                <li><a href="ziwei_year.html">紫微流年運勢</a></li>
+                                <li><a href="fate_family.html">當全家人的命理師</a></li>
+                                <li><a href="worldcoffeeday.html">國際咖啡日</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="graphic_design.html">平面設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開平面設計子選單" aria-expanded="false" aria-controls="overlay_submenu_graphic"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_graphic">
+                                <li><a href="media_post.html">社群圖文</a></li>
+                                <li><a href="card_design.html">名片設計</a></li>
+                                <li><a href="menu_design.html">型錄設計</a></li>
+                                <li><a href="poster_design.html">海報設計</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="photography.html">攝影集</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開攝影集子選單" aria-expanded="false" aria-controls="overlay_submenu_photography"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_photography">
+                                <li><a href="portrait_photography.html">人像攝影</a></li>
+                                <li><a href="still_photography.html">靜物攝影</a></li>
+                                <li><a href="food_photography.html">美食攝影</a></li>
+                                <li><a href="activity_photography.html">活動紀錄</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item"><a class="overlay_link" href="contact.html">聯絡我</a></li>
+                    </ul>
+                </nav>
+                <div class="overlay_contact">
+                    <p class="contact_title">Email</p>
+                    <a class="contact_mail" href="mailto:adrianwang19@gmail.com">adrianwang19@gmail.com</a>
+                    <p class="contact_title">社群平台</p>
+                    <ul class="contact_social">
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./images/icon/icon_instagram.svg" alt="" width="24" height="24"></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="./images/icon/icon_youtube.svg" alt="" width="24" height="24"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main_area">
+    <!-- ========== Hero ========== -->
+    <section id="chapter_hero">
+        <div class="hero_container portfolio_background">
+            <p class="font_en color_orange hero_sub_title">GRAPHIC DESIGN</p>
+            <h1>社群圖文</h1>
+            <div class="breadcrumb">
+                <ul class="breadcrumb_info">
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="graphic_design.html">平面設計</a></li>
+                    <li>社群圖文</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- ========== 專案一 ========== -->
+    <section id="project_rayzephoto">
+        <div class="wrap_container first_padding">
+            <!-- 標題版型 -->
+            <div class="title_board without_gap">
+                <ul class="bar_wrap">
+                    <li class="bar_item_icon"><img src="./images/icon/icon_demo01.png" alt="" loading="lazy"></li>
+                    <li class="bar_item_subtitle">PROJECT</li>
+                    <li class="bar_item_title">睿氏相製所</li>
+                </ul>
+            </div>
+            <!-- 專案區塊 -->
+            <div class="project_board_hero">
+                <!-- 21:9 專案橫幅 -->
+                <div class="board_bannerbox">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_ratio_219/media_post_banner_21_9.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_ratio_219/media_post_banner_21_9.webp" alt="" loading="lazy">
+                        <img src="./images/media_ratio_219/media_post_banner_21_9.webp" alt="" loading="lazy" class="post_position">
+                    </picture>
+                </div>
+            </div>
+            <!-- 專案內文 -->
+            <div class="project_body">
+                <div class="project_title"><p>以個人生活日常、城市街景、人與環境互動的攝影作品展。</p></div>
+                <!-- 雙欄區塊 -->
+                <div class="project_info">
+                    <div class="project_item column_width_normal">
+                        <div class="text_titlebar">
+                            <p class="font_en">ABOUT</p>
+                            <p>專案簡介</p>
+                        </div>
+                    </div>
+                    <div class="project_item column_width_normal">
+                        <div class="project_item_info">
+                            <div class="info_content">
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                            </div>
+                            <div class="info_group">
+                                <ul>
+                                    <li>
+                                        <p>角色</p>
+                                        <p class="color_gray">素材設計製作</p>
+                                        <p class="color_gray">品牌資料研究</p>
+                                        <p class="color_gray">社群經營操作</p>
+                                    </li>
+                                    <li>
+                                        <p>製作時間</p>
+                                        <p class="color_gray">May 2023 – Dec 2023</p>
+                                    </li>
+                                    <li>
+                                        <p>成果</p>
+                                        <p class="color_gray">實體展品落地</p>
+                                        <p class="color_gray">視覺整合應用</p>
+                                        <p class="color_gray">Mockup 示意</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單欄圖片區塊 -->
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+                <!-- 雙欄區塊 -->
+                <div class="project_info">
+                    <div class="project_item column_width_normal">
+                        <div class="text_titlebar">
+                            <p class="font_en">POST DESIGN</p>
+                            <p>貼文設計</p>
+                        </div>
+                    </div>
+                    <div class="project_item column_width_normal">
+                        <div class="project_item_info">
+                            <div class="info_content without_group">
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 容器 -->
+                <div class="norm_case grid_column_3 grid_gap_20">
+                    <!-- 1 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post01.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 2 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post02.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 3 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post03.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 4 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post04.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 5 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post05.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 6 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post06.webp" alt="" loading="lazy">
+                    </div>
+                </div>
+                <!-- 單欄圖片區塊 -->
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/rayze_01.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/rayze_02.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/rayze_02.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/rayze_02.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========== 專案二 ========== -->
+    <section id="project_rayzephoto" class="background_color_black_primary">
+        <div class="wrap_container">
+            <!-- 標題版型 -->
+            <div class="title_board without_gap">
+                <ul class="bar_wrap">
+                    <li class="bar_item_icon"><img src="./images/icon/icon_demo01.png" alt="" loading="lazy"></li>
+                    <li class="bar_item_subtitle">PROJECT</li>
+                    <li class="bar_item_title">曙光Brunch</li>
+                </ul>
+            </div>
+            <!-- 專案區塊 -->
+            <div class="project_board_hero">
+                <!-- 21:9 專案橫幅 -->
+                <div class="board_bannerbox">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_ratio_219/media_post_banner_21_9_02.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_ratio_219/media_post_banner_21_9_02.webp" alt="" loading="lazy">
+                        <img src="./images/media_ratio_219/media_post_banner_21_9_02.webp" alt="" loading="lazy" class="post_position">
+                    </picture>
+                </div>
+            </div>
+            <!-- 專案內文 -->
+            <div class="project_body">
+                <div class="project_title"><p>以個人生活日常、城市街景、人與環境互動的攝影作品展。</p></div>
+                <!-- 雙欄區塊 -->
+                <div class="project_info">
+                    <div class="project_item column_width_normal">
+                        <div class="text_titlebar">
+                            <p class="font_en">ABOUT</p>
+                            <p>專案簡介</p>
+                        </div>
+                    </div>
+                    <div class="project_item column_width_normal">
+                        <div class="project_item_info">
+                            <div class="info_content">
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                            </div>
+                            <div class="info_group">
+                                <ul>
+                                    <li>
+                                        <p>角色</p>
+                                        <p class="color_gray">素材設計製作</p>
+                                        <p class="color_gray">品牌資料研究</p>
+                                        <p class="color_gray">社群經營操作</p>
+                                    </li>
+                                    <li>
+                                        <p>製作時間</p>
+                                        <p class="color_gray">May 2023 – Dec 2023</p>
+                                    </li>
+                                    <li>
+                                        <p>成果</p>
+                                        <p class="color_gray">實體展品落地</p>
+                                        <p class="color_gray">視覺整合應用</p>
+                                        <p class="color_gray">Mockup 示意</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 單欄圖片區塊 -->
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/brunch_01.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/brunch_01.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/brunch_01.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+                <!-- 雙欄區塊 -->
+                <div class="project_info">
+                    <div class="project_item column_width_normal">
+                        <div class="text_titlebar">
+                            <p class="font_en">POST DESIGN</p>
+                            <p>貼文設計</p>
+                        </div>
+                    </div>
+                    <div class="project_item column_width_normal">
+                        <div class="project_item_info">
+                            <div class="info_content without_group">
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                                <p>這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容，這是專案的文案描述內容文案描述內容文案描述內容。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 容器 -->
+                <div class="norm_case grid_column_3 grid_gap_20">
+                    <!-- 1 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post07.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 2 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post08.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 3 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post09.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 4 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post10.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 5 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post11.webp" alt="" loading="lazy">
+                    </div>
+                    <!-- 6 -->
+                    <div class="media_post_box">
+                        <img src="./images/post_square/post12.webp" alt="" loading="lazy">
+                    </div>
+                </div>
+                <!-- 單欄圖片區塊 -->
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/brunch_02.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/brunch_02.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/brunch_02.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+                <div class="single_gallery">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/media_page/brunch_03.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/media_page/brunch_03.webp" alt="" loading="lazy">
+                        <img src="./images/media_page/brunch_03.webp" alt="" loading="lazy">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========== Footer ========== -->
+<footer>
+    <div id="wrap_footer">
+        <div class="content_box">
+            <div class="footer_box">
+                <!-- 精選作品 -->
+                <div class="group_item order_primary">
+                    <div class="brand_icon"><a href="#">Adriannote</a></div>
+                    <ul class="item_linkbox">
+                        <li class="item_description">嗨👋🏻，我是一名網頁視覺設計師，擅長於網站活動視覺規劃以及整合品牌社群與行銷相關素材，這裡收錄我個人的創作及過往專案項目作品。</li>
+                    </ul>
+                </div>
+                <!-- 關於 -->
+                <div class="group_item">
+                    <p class="item_title">關於</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#">關於我</a></li>
+                        <li><a href="#">免責聲明</a></li>
+                        <li><a href="#">隱私權政策</a></li>
+                    </ul>
+                </div>
+                <!-- 精選作品 -->
+                <div class="group_item">
+                    <p class="item_title">精選作品</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#">品牌設計</a></li>
+                        <li><a href="#">平面設計</a></li>
+                        <li><a href="#">菜單設計</a></li>
+                        <li><a href="#">社群圖文</a></li>
+                    </ul>
+                </div>
+                <!-- 追蹤我 -->
+                <div class="group_item media_icon">
+                    <p class="item_title">社群平台</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/icon/icon_instagram.svg" alt="" width="24" height="24"></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/icon/icon_youtube.svg" alt="" width="24" height="24"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright"><p>Copyright © 2026 Adriannote.</p></div>
+</footer>
+
+<!-- ========== Script ========== -->
+<script src="js/navigation.js"></script>
+</body>
+</html>
