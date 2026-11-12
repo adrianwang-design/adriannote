@@ -32,6 +32,7 @@
     /* 字重 */
     --font-weight-normal:normal;
     --font-weight-bold:bold;
+    --font-uppercase:uppercase;
 
     /* 字體陰影 */
     --font-shadow:0 0 6px rgba(0,0,0,0.6);
@@ -56,6 +57,18 @@
 
 /* 強制所有元素都使用 border-box */
 *, *:before, *:after {box-sizing: border-box;}
+
+/* 針對常見的輸入欄位設定至少 16px 字體 */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+    font-size: 16px;
+}
 
 /* 網頁元素 */
 html {
@@ -85,14 +98,15 @@ h1{
 
 h2{
     font-size: var(--font-h2);
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.hero_sub_title{font-size: 1.2rem;}
-
-p{
-    font-weight: 400;
+.hero_sub_title{
+    font-size: 1.2rem;
+    text-transform: var(--font-uppercase);
 }
+
+p{font-weight: 400;}
 
 .font_en{
     font-family: var(--font-family-en);
@@ -120,12 +134,19 @@ img{display: block; width:100%; height: auto;}
 .color_yellow{color: var(--yellow);}
 
 .text_shadow{text-shadow: var(--font-shadow);}
+.text_shadow_light{text-shadow: var(--font-shadow-light);}
 
 /* 背景顏色 */
 .background_color_orange_primary{background-color: var(--orange);}
 .background_color_orange_lite{background-color: var(--yellow);}
 .background_color_black_primary{background-color: var(--black-section-primary);}
 .background_color_black_footer{background-color: var(--black-dark-primary);}
+
+/* 自定義全站文字反白樣式 */
+#site_template ::selection {
+    background-color: var(--black-dark-primary);
+    color: var(--white-primary);
+}
 
 /* =========================================== */
 /* ================== 麵包屑 ================== */
@@ -149,7 +170,7 @@ ul.breadcrumb_info li a {
     color: var(--gray-primary);
     text-decoration: none;
     font-family: "Syne", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     transition: all .3s ease;
 }
 
@@ -326,7 +347,7 @@ ul.breadcrumb_info li a:hover{color: var(--orange);}
 
 #site_template .project_title p{
     font-size:2rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 /* ============================================= */
@@ -350,21 +371,14 @@ ul.breadcrumb_info li a:hover{color: var(--orange);}
     text-indent: 15px;
 }
 
-#site_template .text_titlebar::before{
-    content: '';
-    display: block;
-    width:5px;
-    height: 100%;
-    background-color: var(--orange);
-}
-
 #site_template .text_titlebar p {
     font-size:1rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #site_template .text_titlebar p:first-child{font-weight: 800;}
-#site_template .text_titlebar p:last-child{font-size:2rem;}
+#site_template .text_titlebar p:last-child{font-size:2rem; font-weight: 600;}
+
 #site_template .project_item_info .info_content p{
     font-size:1.3rem;
     font-weight: 400;
@@ -388,7 +402,7 @@ ul.breadcrumb_info li a:hover{color: var(--orange);}
     line-height: 1.7;
 }
 
-#site_template .info_group ul li p:first-child{font-weight:700;}
+#site_template .info_group ul li p:first-child{font-weight:600;}
 
 /* ============================================== */
 /* ================== 單欄作品圖 ================== */
@@ -497,12 +511,12 @@ ul.breadcrumb_info li a:hover{color: var(--orange);}
     color: var(--white-primary);
     font-size: 1.4rem;
     font-family: var(--font-family-en);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #wrap_footer .item_title{
     font-size:1.3rem;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom:10px;
 }
 
@@ -548,7 +562,7 @@ footer .copyright{
     text-align: center;
     border-top:1px solid var(--black-section-primary);
     font-family: var(--font-family-en);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* 當裝置寬度小於等於1299px時 */
@@ -556,9 +570,8 @@ footer .copyright{
     h1{font-size: 6rem;}
     #site_template .wrap_container{width:95%;}
     #site_template .project_info{flex-direction: column;}
-    #site_template .text_titlebar p {margin-bottom:10px;}
+    #site_template .text_titlebar p {font-size:.8rem; margin-bottom:6px; line-height: 1;}
     .column_width_normal{width:100%;}
-    #site_template .text_titlebar p {line-height: 1;}
     #wrap_footer .footer_box{width:100%;}
 }
 
@@ -580,7 +593,7 @@ footer .copyright{
     #site_template .wrap_container{width:90%; padding:60px 0px;}
     #site_template .hero_container{
         height:auto;
-        padding:110px 0px 40px 0px;
+        padding:100px 0px 40px 0px;
     }
 
     #site_template .first_padding{padding:0px 0px 60px 0px;}
@@ -613,8 +626,13 @@ footer .copyright{
         line-height: 1.5;
     }
 
-    #site_template .text_titlebar p:first-child {font-size:.9rem;}
-    
+    #site_template .text_titlebar p {line-height: .8;}
+    #site_template .text_titlebar p:first-child {font-size:.8rem;}
+    #site_template .text_titlebar p:last-child{
+        font-size:1.4rem;
+        line-height: 1;
+    }
+
     #site_template .project_item_info .info_content p{font-size:1rem;}
     #site_template .info_group ul{
         width:100%;
@@ -623,20 +641,14 @@ footer .copyright{
         gap: 20px;
     }
     
-    #site_template .project_title p{
-        font-size:1.4rem;
-        font-weight: 700;
-    }
-
+    #site_template .project_title p{font-size:1.4rem;}
     #site_template .info_group ul li p{font-size:1rem;}
-    #site_template .text_titlebar p {line-height: .8;}
-    #site_template .text_titlebar p:last-child{
-        font-size:1.4rem;
-        line-height: 1;
-    }
 
     #site_template .without_gap ul.bar_wrap{gap:0px;}
-    #site_template .without_gap ul.bar_wrap li.bar_item_icon{margin-bottom:20px;}
+    #site_template .without_gap ul.bar_wrap li.bar_item_icon{
+        width:45px;
+        margin-bottom:10px;
+    }
 
     #wrap_footer{
         padding:50px 20px 0px 20px;

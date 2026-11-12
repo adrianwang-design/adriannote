@@ -1,6 +1,6 @@
 #chapter_photography h2{
     font-size:2rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 
@@ -94,8 +94,9 @@
 
 /* 當裝置寬度小於等於768px時 */
 @media (max-width:768px){
+    #chapter_photography .photo_card_info p:first-child{font-size: .9rem;}
     #chapter_photography h2{
-        font-size:1.8rem;
+        font-size:1.7rem;
         font-weight: 600;
     }
 

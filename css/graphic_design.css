@@ -64,7 +64,7 @@
 
 #chapter_category .card_category_body li.text_category_title{
     font-size:2rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
 }
 
@@ -110,12 +110,28 @@
     #chapter_category .card_category_body{padding:20px;}
 
     #chapter_category .card_category_body li{
-        font-size:1rem;
+        font-size:.9rem;
         line-height: 1;
     }
 
-    #chapter_category .card_category_body li.text_category_title{font-size:1.8rem;}
+    #chapter_category .card_category_body li.text_category_title{font-size:1.4rem;}
     #chapter_category .card_category_box{height: 230px;}
+
+    /* 按鈕箭頭 */
+    #chapter_category .card_category_body li.button_decoration{
+        width: 25px;
+        height: 3px;
+    }
+
+    #chapter_category .card_category_body li.button_decoration::before{
+        width: 15px;
+        height: 15px;
+    }
+
+    #chapter_category .card_category_body li.button_decoration::after{
+        width: 15px;
+        height: 15px;
+    }
 }
 
 /* 當裝置寬度界於393px至440px時 */

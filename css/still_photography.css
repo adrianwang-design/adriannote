@@ -79,8 +79,8 @@
         gap: 20px;
     }
 
-    #project_card_design .showcase_item li.show_item_infobar{flex-direction: column;}
-    #project_card_design .showcase_item li.show_item_infobar p{font-size:1.1rem;}
+    #project_card_design .showcase_item li.show_item_infobar{flex-direction: column;margin-top:5px;}
+    #project_card_design .showcase_item li.show_item_infobar p{font-size:1rem;}
     #related_card_design ul.related_card_info li{font-size:1.4rem;}
     #related_card_design .related_card_box{aspect-ratio: 2 / 1;}
 }
