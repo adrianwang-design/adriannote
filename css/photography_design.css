@@ -41,6 +41,7 @@
 #chapter_photography .photo_card_info p.photo_summary{
     font-size:1.1rem;
     line-height: 1.7;
+    color: var(--gray-card);
 }
 
 #chapter_photography .photo_card_img{
@@ -63,16 +64,19 @@
 }
 
 #chapter_photography .photo_card_button{
-    background: rgba(255, 66, 0, 0.58);
-    border-radius: 35px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 66, 0, 0.25);
+    background-color: var(--orange-secondary);
+    border: 2px solid rgb(255, 165, 132 , 1);
+    border-radius: 45px;
     padding:4% 15%;
     font-size:1.1rem;
     font-weight: 500;
     line-height: 1.2;
+    transition: all .3s ease;
+}
+
+#chapter_photography a.photo_box_button:hover .photo_card_button{
+    background-color: #101010;
+    border: 2px solid rgb(255, 165, 132 , 1);
 }
 
 @media screen and (max-width: 956px) and (max-height: 667px) and (orientation: landscape){
@@ -119,5 +123,9 @@
         aspect-ratio: 1 / 1;
         padding: 0px;
         height: 230px;
+    }
+
+    #chapter_photography .photo_card_button{
+        padding:2.2% 10%;
     }
 }
