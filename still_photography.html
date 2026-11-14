@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <link href="css/reset.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/graphic_design.css">
     <link rel="stylesheet" href="css/still_photography.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/glass_button.css">
+    <link rel="stylesheet" href="css/slideshow.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,8 +39,8 @@
                 </ul>
             </li>
             <li class="nav_item has_submenu">
-                <a class="nav_link nav_trigger" href="graphic_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_graphic">平面設計<span class="nav_caret" aria-hidden="true"></span></a>
-                <ul class="submenu" id="submenu_graphic">
+                <a class="nav_link nav_trigger" href="graphic_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="overlay_submenu_graphic">平面設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="overlay_submenu_graphic">
                     <li><a href="media_post.html">社群圖文</a></li>
                     <li><a href="card_design.html">名片設計</a></li>
                     <li><a href="menu_design.html">型錄設計</a></li>
@@ -46,8 +48,8 @@
                 </ul>
             </li>
             <li class="nav_item has_submenu">
-                <a class="nav_link nav_trigger" href="photography.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_photography">攝影集<span class="nav_caret" aria-hidden="true"></span></a>
-                <ul class="submenu" id="submenu_photography">
+                <a class="nav_link nav_trigger" href="photography.html" aria-haspopup="true" aria-expanded="false" aria-controls="overlay_submenu_photography">攝影集<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="overlay_submenu_photography">
                     <li><a href="portrait_photography.html">人像攝影</a></li>
                     <li><a href="still_photography.html">靜物攝影</a></li>
                     <li><a href="food_photography.html">美食攝影</a></li>
@@ -77,7 +79,7 @@
                         <li class="overlay_item"><a class="overlay_link" href="#">首頁</a></li>
                         <li class="overlay_item has_submenu">
                             <div class="overlay_row">
-                                <a class="overlay_link" href="#">品牌設計</a>
+                                <a class="overlay_link" href="brand_design.html">品牌設計</a>
                                 <button type="button" class="overlay_arrow" aria-label="展開品牌設計子選單" aria-expanded="false" aria-controls="overlay_submenu_brand"><span class="nav_caret" aria-hidden="true"></span></button>
                             </div>
                             <ul class="overlay_submenu" id="overlay_submenu_brand">
@@ -118,7 +120,7 @@
                                 <li><a href="portrait_photography.html">人像攝影</a></li>
                                 <li><a href="still_photography.html">靜物攝影</a></li>
                                 <li><a href="food_photography.html">美食攝影</a></li>
-                                <li><a href="activity_photography.html">活動紀錄</a></li>
+                                <li><a href="acitivity_photography.html">活動紀錄</a></li>
                             </ul>
                         </li>
                         <li class="overlay_item"><a class="overlay_link" href="contact.html">聯絡我</a></li>
@@ -163,68 +165,315 @@
                     <li class="bar_item_title">產品系列</li>
                 </ul>
             </div>
-            <!-- 產品區塊 -->
-            <div class="showcase_wrapper">
-                <!-- 1 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題01</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
+            <!-- 產品區塊（輪播 + 燈箱） -->
+            <div class="slideshow" id="slideshow_product" role="region" aria-roledescription="carousel" aria-label="產品系列輪播" data-slideshow data-autoplay="false" data-interval="3000" data-items-desktop="6" data-items-mobile="4">
+                <div class="slideshow_viewport">
+                    <div class="showcase_wrapper" data-lightbox-group="product">
+                        <!-- 1 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題01"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題01</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 2 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題02"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題02</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 3 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題03"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題03</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 4 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題04"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題04</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 5 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題05"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題05</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 6 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題06"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題06</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 7 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題07"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題07</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 8 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題08"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題08</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 9 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題09"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題09</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 10 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題10"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題10</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 11 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題11"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題11</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 12 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題12"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題12</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 13 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題13"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題13</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 14 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題14"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題14</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 15 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題15"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題15</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 16 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題16"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題16</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 17 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題17"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題17</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 18 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題18"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題18</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 19 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題19"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題19</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 20 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題20"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題20</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 21 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題21"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題21</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 22 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題22"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題22</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 23 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題23"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題23</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 24 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題24"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題24</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 25 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題25"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題25</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 26 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題26"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題26</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 27 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題27"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題27</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 28 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題28"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題28</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 29 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題29"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題29</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 30 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：產品系列標題30"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>產品系列標題30</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="glass_button slideshow_arrow slideshow_prev" aria-label="上一頁"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <button type="button" class="glass_button slideshow_arrow slideshow_next" aria-label="下一頁"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                 </div>
-                <!-- 2 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_02.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題02</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 3 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_03.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題03</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 4 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_04.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題04</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 5 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_05.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題05</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 6 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_06.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>產品系列標題06</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
+                <div class="slideshow_dots" role="group" aria-label="選擇頁面"></div>
             </div>
         </div>
     </section>
@@ -239,68 +488,315 @@
                     <li class="bar_item_title">街景系列</li>
                 </ul>
             </div>
-            <!-- 產品區塊 -->
-            <div class="showcase_wrapper">
-                <!-- 1 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題01</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
+            <!-- 產品區塊（輪播 + 燈箱） -->
+            <div class="slideshow" id="slideshow_street" role="region" aria-roledescription="carousel" aria-label="街景系列輪播" data-slideshow data-autoplay="false" data-interval="3000" data-items-desktop="6" data-items-mobile="4">
+                <div class="slideshow_viewport">
+                    <div class="showcase_wrapper" data-lightbox-group="street">
+                        <!-- 1 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題01"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題01</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 2 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題02"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題02</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 3 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題03"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題03</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 4 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題04"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題04</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 5 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題05"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題05</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 6 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題06"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題06</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 7 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題07"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題07</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 8 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題08"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題08</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 9 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題09"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題09</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 10 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題10"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題10</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 11 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題11"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題11</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 12 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題12"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題12</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 13 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題13"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題13</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 14 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題14"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題14</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 15 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題15"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題15</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 16 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題16"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題16</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 17 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題17"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題17</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 18 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題18"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題18</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 19 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題19"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題19</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 20 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題20"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題20</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 21 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題21"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題21</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 22 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題22"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題22</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 23 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題23"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題23</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 24 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題24"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題24</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 25 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題25"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題25</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 26 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題26"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題26</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 27 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題27"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題27</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 28 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題28"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題28</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 29 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題29"><img src="./images/photography_square/still_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題29</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 30 -->
+                        <div class="showcase_item">
+                            <ul>
+                                <li class="show_item_img"><button type="button" class="show_item_trigger" data-lightbox-trigger aria-label="放大檢視：街景系列標題30"><img src="./images/photography_ratio_34/food_01.webp" alt="" loading="lazy" srcset=""></button></li>
+                                <li class="show_item_infobar">
+                                    <p>街景系列標題30</p>
+                                    <p class="font_en">2025</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="glass_button slideshow_arrow slideshow_prev" aria-label="上一頁"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    <button type="button" class="glass_button slideshow_arrow slideshow_next" aria-label="下一頁"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                 </div>
-                <!-- 2 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_02.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題02</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 3 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_03.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題03</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 4 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_04.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題04</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 5 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_05.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題05</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 6 -->
-                <div class="showcase_item">
-                    <ul>
-                        <li class="show_item_img"><img src="./images/photography_square/still_06.webp" alt="" loading="lazy" srcset=""></li>
-                        <li class="show_item_infobar">
-                            <p>街景系列標題06</p>
-                            <p class="font_en">2025</p>
-                        </li>
-                    </ul>
-                </div>
+                <div class="slideshow_dots" role="group" aria-label="選擇頁面"></div>
             </div>
         </div>
     </section>
@@ -397,7 +893,25 @@
     <div class="copyright"><p>Copyright © 2026 Adriannote.</p></div>
 </footer>
 
+<!-- ========== Lightbox（全站共用，由 data-lightbox-trigger 觸發） ========== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片檢視">
+    <div class="lightbox_stage">
+        <figure class="lightbox_figure">
+            <img class="lightbox_image" alt="">
+            <figcaption class="lightbox_caption">
+                <span class="lightbox_title"></span>
+                <span class="lightbox_year font_en"></span>
+            </figcaption>
+        </figure>
+    </div>
+    <button type="button" class="glass_button lightbox_btn lightbox_close" aria-label="關閉"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button type="button" class="glass_button lightbox_btn lightbox_prev" aria-label="上一張"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button type="button" class="glass_button lightbox_btn lightbox_next" aria-label="下一張"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+
 <!-- ========== Script ========== -->
 <script src="js/navigation.js"></script>
+<script src="js/slideshow.js"></script>
+<script src="js/lightbox.js"></script>
 </body>
 </html>
