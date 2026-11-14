@@ -62,6 +62,10 @@
 
 /* 強制所有元素都使用 border-box */
 *, *:before, *:after {box-sizing: border-box;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
 /* 針對常見的輸入欄位設定至少 16px 字體 */
 input[type="text"],
