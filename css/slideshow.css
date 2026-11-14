@@ -198,9 +198,9 @@
 
 /* 使用者系統設定為「減少動態效果」時，縮短動畫時間 */
 @media (prefers-reduced-motion: reduce){
-    .slideshow .showcase_wrapper,
+    /* .slideshow .showcase_wrapper,
     .show_item_trigger img,
     .slideshow_dot{
         transition-duration: .01ms;
-    }
+    } */
 }
