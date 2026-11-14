@@ -1,0 +1,85 @@
+/* ==========================================================
+   共用圓形玻璃按鈕（輪播左右換頁、燈箱換張與關閉）
+   樣式：1px 漸層框線（右下黑 → 左上白）+ 導覽列同款玻璃擬態
+   玻璃底色沿用 navigation.css 的 --nav-glass-bg
+   ========================================================== */
+:root{
+    --glass-size:48px;
+}
+
+.glass_button{
+    position: relative;
+    display: inline-flex;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    width: var(--glass-size);
+    height: var(--glass-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--nav-glass-bg, rgba(26, 26, 26, .55));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .35);
+    color: var(--white-primary, #f8f8fa);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: all .3s ease-in-out;
+}
+
+/* 1px 漸層框線：用遮罩挖空中間，只留下一圈環，玻璃背景才不會被漸層染色 */
+.glass_button::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1px;
+    border-radius: 50%;
+    background: linear-gradient(to top left, #000000, #ffffff);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.glass_button svg{
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.glass_button:active{
+    transform: scale(.94);
+}
+
+.glass_button:focus-visible{
+    outline: 2px solid var(--orange, #FF4200);
+    outline-offset: 3px;
+}
+
+@media (hover: hover){
+    .glass_button:hover{
+        color: var(--orange, #FF4200);
+    }
+}
+
+/* 手機版（沿用 768px 斷點）按鈕縮小為 44px，仍符合手指點擊範圍 */
+@media (max-width:768px){
+    :root{
+        --glass-size:44px;
+    }
+}
+
+/* 瀏覽器不支援毛玻璃時的備援 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+    .glass_button{
+        background-color: rgba(26, 26, 26, .94);
+    }
+}
