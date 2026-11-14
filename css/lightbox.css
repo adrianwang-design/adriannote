@@ -1,0 +1,151 @@
+/* ==========================================================
+   燈箱（Lightbox）
+   滿版黑色半透明 + 模糊，內容水平垂直置中，淡入淡出
+   ========================================================== */
+
+/* 開啟燈箱時鎖定背景捲動（不使用 position:fixed，避免捲動位置歸零而影響導覽列狀態） */
+html.lightbox_locked{
+    overflow: hidden;
+}
+
+.lightbox{
+    --lb-pad-x:96px;
+    --lb-pad-y:72px;
+    --lb-caption-h:56px;
+    --lb-edge:24px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 0;
+    visibility: hidden;
+    overscroll-behavior: contain;
+    touch-action: none;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    transition: opacity .3s ease-in-out, visibility 0s linear .3s;
+}
+
+.lightbox.is_open{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s ease-in-out, visibility 0s linear 0s;
+}
+
+/* 內容區：圖片與標題水平、垂直置中 */
+.lightbox_stage{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--lb-pad-y) var(--lb-pad-x);
+}
+
+.lightbox_figure{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0;
+    transition: opacity .2s ease-in-out;
+}
+
+.lightbox_figure.is_changing{
+    opacity: 0;
+}
+
+/* 圖片完整顯示、不裁切（方形與 3:4 皆適用） */
+.lightbox_image{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: calc(100vw - (var(--lb-pad-x) * 2));
+    max-height: calc(100vh - (var(--lb-pad-y) * 2) - var(--lb-caption-h));
+    max-height: calc(100dvh - (var(--lb-pad-y) * 2) - var(--lb-caption-h));
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+/* 圖片下方：標題與年份 */
+.lightbox_caption{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-top: 14px;
+    color: var(--white-primary, #f8f8fa);
+}
+
+.lightbox_title{
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.lightbox_year{
+    flex: none;
+    color: var(--white-secondary, #dddddd);
+    font-size: 1rem;
+}
+
+/* ---------- 功能按鈕（外觀來自 glass_button.css） ---------- */
+.lightbox_btn{
+    position: absolute;
+    z-index: 2;
+}
+
+.lightbox_close{
+    top: calc(var(--lb-edge) + env(safe-area-inset-top, 0px));
+    right: calc(var(--lb-edge) + env(safe-area-inset-right, 0px));
+}
+
+.lightbox_prev{
+    top: 50%;
+    left: calc(var(--lb-edge) + env(safe-area-inset-left, 0px));
+    margin-top: calc(var(--glass-size) / -2);
+}
+
+.lightbox_next{
+    top: 50%;
+    right: calc(var(--lb-edge) + env(safe-area-inset-right, 0px));
+    margin-top: calc(var(--glass-size) / -2);
+}
+
+/* 只有一張圖時不顯示左右按鈕 */
+.lightbox.is_single .lightbox_prev,
+.lightbox.is_single .lightbox_next{
+    display: none;
+}
+
+/* ---------- 手機版（沿用 768px 斷點） ---------- */
+@media (max-width:768px){
+    .lightbox{
+        --lb-pad-x:12px;
+        --lb-pad-y:68px;
+        --lb-caption-h:60px;
+        --lb-edge:12px;
+    }
+
+    .lightbox_title{
+        font-size: 1rem;
+    }
+
+    .lightbox_year{
+        font-size: .9rem;
+    }
+}
+
+/* 瀏覽器不支援毛玻璃時的備援 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+    .lightbox{
+        background-color: rgba(0, 0, 0, .92);
+    }
+}
