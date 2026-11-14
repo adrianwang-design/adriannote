@@ -14,7 +14,7 @@
     --milk-tea-lite:#ffdbb5;
     --red:#e42f2f;
 
-    /* 黑色系 */
+    /* 黑色 */
     --black-primary:#1A1A1A;
     --black-section-primary:#2E2E2E;
     --black-dark-primary:#111111;
@@ -35,6 +35,8 @@
     /* 字重 */
     --font-weight-normal:normal;
     --font-weight-bold:bold;
+    
+    /* 英文大寫 */
     --font-uppercase:uppercase;
 
     /* 字體陰影 */
@@ -132,6 +134,7 @@ a{text-decoration: none;}
 img{display: block; width:100%; height: auto;}
 
 /* 文字顏色 */
+.color_white{color: var(--white-primary);}
 .color_black{color: var(--black-primary);}
 .color_gray{color: var(--gray-primary);}
 .color_gray_lite{color: var(--gray-secondary);}
@@ -213,7 +216,7 @@ ul.breadcrumb_info li a:hover{color: var(--orange-secondary);}
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:1200px;
+    width:var(--secotion-block);
     margin:0 auto;
     padding:80px 0px;
     gap:30px;
@@ -299,6 +302,35 @@ ul.breadcrumb_info li a:hover{color: var(--orange-secondary);}
     line-height: 1.7;
 }
 
+/* ================================================ */
+/* ================== 頁面切換淡出 ================== */
+/* ================================================ */
+/* 轉場遮罩本體：預設蓋滿全螢幕，顏色可改成你作品集的背景色 */
+.page_transition_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+/* 當加上這個 class 時，遮罩變透明 */
+.page_transition_overlay.fade_out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ================================================ */
+/* ================== 短版視覺背景 ================== */
+/* ================================================ */
 /* 平面設計-短板視覺背景 */
 .portfolio_background{
     background-image: url(../images/bg_grapic_design.webp);
@@ -586,7 +618,7 @@ footer .copyright{
     font-weight: 400;
 }
 
-/* 當裝置寬度小於等於1299px時 */
+/* 當裝置寬度小於等於 1299px 時 */
 @media (max-width:1299px) {
     h1{font-size: 6rem;}
     #site_template .wrap_container{width:95%;}
@@ -596,6 +628,7 @@ footer .copyright{
     #wrap_footer .footer_box{width:100%;}
 }
 
+/* 當裝置寬度介於 1080px 與 1299px 之間 */
 @media screen and (max-width: 1080px) and (max-height: 1299px){
     #chapter_photography .grid_column_2{grid-template-columns: var(--grid-column-1);}
 }
@@ -607,7 +640,7 @@ footer .copyright{
     #chapter_photography .grid_column_2{grid-template-columns: var(--grid-column-2);}
 }
 
-/* 當裝置寬度小於等於768px時 */
+/* 當裝置寬度小於等於 768px 時 */
 @media (max-width:768px){
     h1{font-size: 4rem;}
     ul.breadcrumb_info li {font-size: 1rem;}

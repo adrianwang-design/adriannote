@@ -703,7 +703,7 @@
 
     #web_act001 .animation_bg{
         background: url(../images/project_fate_family/hero_animation_mobile_bg.webp) center right no-repeat;
-        background-size: 60% auto;
+        background-size: 61% auto;
     }
 
     /* 動畫區塊-對話框 */
@@ -745,12 +745,11 @@
 
     /* 造型標題 */
     #web_act001 .style_titlebar{
-        width:100%;
-        height: auto;
-        line-height: normal;
-        margin:0 auto;
         background: url(../images/project_fate_family/title_bar.webp) center no-repeat;
-        background-size: 100% auto;
+        background-size: 100%;
+        width: 100%;
+        height: 45px;
+        margin-bottom:10px;
     }
 
     /* 造型標題2 */
@@ -765,14 +764,15 @@
     #web_act001 .style_titlebar p {
         font-size: 5vw;
         font-weight: 500;
-        /* line-height: 2.3rem; */
-        line-height: 5rem;
+        line-height: 45px;
     }
 
     #web_act001 .style_titlebar2 p{
         font-size: 1.2rem;
         font-weight: 500;
     }
+
+    #point .style_titlebar{margin-bottom:0px;}
 
     #web_act001 .text_box p{
         font-size: 1.3rem;
@@ -913,12 +913,7 @@
 
     #web_act001 .feedback_area {
         width: 100%;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        background-color: transparent;
-        margin: 0 auto;
-        padding-top: 20px;
+        padding-top: 0px;
     }
 
     #web_act001 .feedback_area .top_box > .feedback_r p {

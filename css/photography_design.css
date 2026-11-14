@@ -1,3 +1,11 @@
+/* google icon */
+#chapter_photography .material-symbols-outlined{
+    font-size: 28px; /* 控制圖示大小 */
+    vertical-align: middle; /* 讓圖示與旁邊的文字垂直置中對齊 */
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    transition: font-variation-settings 0.2s ease, color 0.2s ease;
+}
+
 #chapter_photography h2{
     font-size:2rem;
     font-weight: 600;
@@ -67,10 +75,9 @@
     background-color: var(--orange-secondary);
     border: 2px solid rgb(255, 165, 132 , 1);
     border-radius: 45px;
-    padding:4% 15%;
+    padding:10px 40px;
     font-size:1.1rem;
     font-weight: 500;
-    line-height: 1.2;
     transition: all .3s ease;
 }
 
