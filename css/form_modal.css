@@ -1,0 +1,232 @@
+/* ==========================================================
+   表單驗證彈跳視窗
+   - 固定在畫面正中央，背後黑色半透明 + 模糊
+   - 視窗本體：導覽列同款玻璃擬態（深色、半透明、白字）
+   - 開啟：由下往上 + 模糊淡入；關閉：由上往下 + 模糊淡出
+   ========================================================== */
+
+/* 開啟時鎖定背景捲動（不使用 position:fixed，避免捲動位置歸零而影響導覽列狀態） */
+html.modal_locked{
+    overflow: hidden;
+}
+
+.form_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    overscroll-behavior: contain;
+    /* 關閉狀態：隱藏；關閉時延遲 .3 秒才真正隱藏，讓淡出動畫跑完 */
+    visibility: hidden;
+    transition: visibility 0s linear .3s;
+}
+
+.form_modal.is_open{
+    visibility: visible;
+    transition: visibility 0s linear 0s;
+}
+
+/* 背景遮罩：獨立放在偽元素。
+   視窗本體的毛玻璃需要「看得到」背後的畫面，若把遮罩的模糊直接加在外層容器，視窗的模糊會失效 */
+.form_modal::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .65);
+    opacity: 0;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transition: opacity .3s ease-in-out;
+}
+
+.form_modal.is_open::before{
+    opacity: 1;
+}
+
+/* ---------- 視窗本體（玻璃擬態） ---------- */
+.form_modal_dialog{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 440px;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    border: 1px solid var(--nav-glass-border, rgba(255, 255, 255, .14));
+    border-radius: 24px;
+    background-color: var(--nav-glass-bg, rgba(26, 26, 26, .55));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .35);
+    color: var(--white-primary);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    /* 關閉狀態：往下 40px + 透明 + 模糊。
+       開啟時回到原位 = 由下往上；關閉時又回到這裡 = 由上往下 */
+    opacity: 0;
+    transform: translateY(40px);
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out, filter .3s ease-in-out;
+}
+
+/* 開啟後 filter 設為 none（而不是 blur(0)），避免殘留的 filter 影響關閉按鈕的毛玻璃效果 */
+.form_modal.is_open .form_modal_dialog{
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-filter: none;
+    filter: none;
+}
+
+/* ---------- 內容區（超過高度時，只有這裡會出現捲軸） ---------- */
+.form_modal_body{
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 44px 32px 32px;
+    border-radius: 24px;
+    outline: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, .3) transparent;
+}
+
+.form_modal_body::-webkit-scrollbar{
+    width: 6px;
+}
+
+.form_modal_body::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.form_modal_body:focus-visible{
+    box-shadow: inset 0 0 0 2px var(--orange);
+}
+
+/* 圖示（優先權高於 contact.css 對 .material-symbols-outlined 的設定） */
+.form_modal .form_modal_icon{
+    display: block;
+    margin-bottom: 12px;
+    color: var(--orange);
+    font-size: 3rem;
+}
+
+.form_modal .form_modal_title{
+    margin: 0 0 12px 0;
+    color: var(--white-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.form_modal .form_modal_desc{
+    margin: 0;
+    color: var(--white-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* 錯誤項目清單（由 JS 依欄位上的文字產生） */
+.form_modal_list{
+    margin: 20px 0 0 0;
+    text-align: left;
+}
+
+.form_modal_item{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, .06);
+}
+
+.form_modal_item + .form_modal_item{
+    margin-top: 8px;
+}
+
+.form_modal_item_label{
+    color: var(--orange);
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.form_modal_item_msg{
+    color: var(--white-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ---------- 右上角關閉按鈕（外觀來自 glass_button.css，與燈箱關閉按鈕相同） ---------- */
+.form_modal_close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+}
+
+.form_modal .form_modal_close .material-symbols-outlined{
+    color: inherit;
+    font-size: 1.5rem;
+}
+
+/* ---------- 手機版（沿用 768px 斷點）：視窗最高為螢幕高度的三分之二 ---------- */
+@media (max-width:768px){
+    .form_modal{
+        padding: 16px;
+    }
+
+    .form_modal_dialog{
+        max-height: 66.666vh;
+        max-height: 66.666dvh;
+    }
+
+    .form_modal_body{
+        padding: 40px 20px 24px;
+    }
+
+    .form_modal .form_modal_icon{
+        font-size: 2.6rem;
+    }
+
+    .form_modal .form_modal_title{
+        font-size: 1.3rem;
+    }
+
+    .form_modal_close{
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* 瀏覽器不支援毛玻璃時的備援 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+    .form_modal::before{
+        background-color: rgba(0, 0, 0, .88);
+    }
+
+    .form_modal_dialog{
+        background-color: rgba(26, 26, 26, .96);
+    }
+}
+
+/* 使用者系統設定為「減少動態效果」時，縮短動畫時間 */
+@media (prefers-reduced-motion: reduce){
+    .form_modal::before,
+    .form_modal_dialog{
+        transition-duration: .01ms;
+    }
+}

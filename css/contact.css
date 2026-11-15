@@ -1,0 +1,148 @@
+#project_contact .contact_box{
+    width:100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+#project_contact .contact_item{
+    width:100%;
+}
+
+/* 項目英文副標題 */
+#project_contact .contact_subtitle{
+    font-size:1.2rem;
+    font-family: var(--font-family-en);
+    font-weight: 800;
+    color: var(--orange);
+    margin-bottom:80px;
+    text-transform: var(--font-uppercase);
+}
+
+/* 項目主標題 */
+#project_contact .contact_maintitle{
+    font-size:4rem;
+    font-family: var(--font-family-ch);
+    font-weight: 700;
+    line-height: 1;
+    transform: scaleY(0.8);
+    color: var(--white-primary);
+}
+
+/* 聯絡我文字描述欄 */
+#project_contact .contact_descripition{
+    padding: 20px 30px 30px 0px;
+}
+
+#project_contact .contact_descripition p{
+    font-size:1.25rem;
+    font-family: var(--font-family-ch);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--white-secondary);
+}
+
+/* 項目群組 */
+#project_contact .items_group{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#project_contact .contact_icon_item{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 帶有icon圖示的項目內容 */
+#project_contact .contact_icon_item{
+    height: 90px;
+}
+
+#project_contact .item_icon{
+    width:auto;
+    text-align: center;
+    margin-right:10px;
+}
+
+/* 聯絡方式小字 */
+#project_contact .item_icon_info ul{
+    display: block;
+    width:100%;
+}
+
+#project_contact .item_icon_info li:first-child{
+    font-size:1.2rem;
+    font-family: var(--font-family-ch);
+    font-weight: 600;
+    color: var(--white-primary);
+}
+
+#project_contact .item_icon_info li:last-child{
+    font-size:.9rem;
+    font-family: var(--font-family-en);
+    font-weight: normal;
+    color: var(--gray-primary);
+}
+
+.material-symbols-outlined {
+    color: var(--orange);
+    font-size: 1.8rem;
+    user-select: none;/* 避免使用者誤選取到圖示的文字名稱 */
+}
+
+/* 當裝置寬度小於等於768px時 */
+@media (max-width:768px){
+    #project_contact .contact_box{gap: 0px;}
+    
+    /* 項目英文副標題 */
+    #project_contact .contact_subtitle,
+    #project_contact .contact_maintitle{display: none;}
+
+    #project_contact .contact_descripition {padding: 0px 0px 40px 0px;}
+    #project_contact .contact_descripition p{font-size: 1rem;}
+
+    #project_contact .items_group {
+        width:auto;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom:30px;
+    }
+
+    #project_contact .contact_icon_item {
+        flex-direction: column;
+    }
+
+    #project_contact .item_icon_info li:first-child{
+        font-size:1.1rem;
+        line-height: 1;
+        margin-bottom:5px;
+        text-align: center;
+    }
+
+    #project_contact .item_icon_info li:last-child{
+        text-align: center;
+        font-size:.9rem;
+        font-family: var(--font-family-en);
+        font-weight: normal;
+        color: var(--gray-primary);
+    }
+
+    /* 帶有icon圖示的項目內容 */
+    #project_contact .contact_icon_item{height: auto;}
+    #project_contact .item_icon {margin-right: 0px;}
+
+    .material-symbols-outlined {
+        font-size: 1.8rem;
+        user-select: none;/* 避免使用者誤選取到圖示的文字名稱 */
+    }
+}
