@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&family=Syne:wght@700..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=cancel,check_circle,close,error,label_important,mail,notes,person,public" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/glass_button.css">
+    <link rel="stylesheet" href="css/contact_form.css">
+    <link rel="stylesheet" href="css/form_modal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adriannote、視覺設計師、品牌識別、平面設計、網頁設計、攝影紀錄">
+    <title>Adriannote｜聯絡我</title>
+</head>
+<body id="site_template" class="contact">
+<!-- ========== Header ========== -->
+<header id="site_header" class="site_header">
+    <!-- 電腦版導覽列 -->
+    <nav class="nav_desktop" id="nav_desktop" aria-label="主選單">
+        <a class="nav_brand" href="#">Adriannote</a>
+        <ul class="nav_menu">
+            <li class="nav_item"><a class="nav_link" href="#">首頁</a></li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="brand_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_brand">品牌設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_brand">
+                    <li><a href="rayze_design.html">睿氏設計</a></li>
+                    <li><a href="kiki_cafe.html">木其咖啡</a></li>
+                    <li><a href="click_web.html">科技紫微網</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="web_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_campaign">網頁設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_campaign">
+                    <li><a href="ziwei_year.html">紫微流年運勢</a></li>
+                    <li><a href="fate_family.html">當全家人的命理師</a></li>
+                    <li><a href="worldcoffeeday.html">國際咖啡日</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="graphic_design.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_graphic">平面設計<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_graphic">
+                    <li><a href="media_post.html">社群圖文</a></li>
+                    <li><a href="card_design.html">名片設計</a></li>
+                    <li><a href="menu_design.html">型錄設計</a></li>
+                    <li><a href="poster_design.html">海報設計</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_submenu">
+                <a class="nav_link nav_trigger" href="photography.html" aria-haspopup="true" aria-expanded="false" aria-controls="submenu_photography">攝影集<span class="nav_caret" aria-hidden="true"></span></a>
+                <ul class="submenu" id="submenu_photography">
+                    <li><a href="portrait_photography.html">人像攝影</a></li>
+                    <li><a href="still_photography.html">靜物攝影</a></li>
+                    <li><a href="food_photography.html">美食攝影</a></li>
+                    <li><a href="activity_photography.html">活動紀錄</a></li>
+                </ul>
+            </li>
+            <li class="nav_item"><a class="nav_link" href="contact.html">聯絡我</a></li>
+        </ul>
+    </nav>
+
+    <!-- 漢堡選單膠囊（捲動後與手機版顯示；手機版左側為品牌名稱，開啟後 MENU 變成 CLOSE） -->
+    <div class="nav_capsule" id="nav_capsule">
+        <a class="capsule_brand" href="#">Adriannote</a>
+        <button type="button" class="nav_toggle" id="nav_toggle" aria-expanded="false" aria-controls="nav_overlay" aria-label="開啟選單">
+            <span class="toggle_icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="toggle_label" aria-hidden="true"><span class="label_menu">MENU</span><span class="label_close">CLOSE</span></span>
+        </button>
+    </div>
+
+    <!-- 全螢幕選單 -->
+    <div class="nav_overlay" id="nav_overlay" role="dialog" aria-modal="true" aria-label="網站選單">
+        <div class="overlay_inner">
+            <a class="overlay_brand" href="#">Adriannote</a>
+            <div class="overlay_bottom">
+                <nav class="overlay_nav" aria-label="手機版主選單">
+                    <ul class="overlay_menu">
+                        <li class="overlay_item"><a class="overlay_link" href="#">首頁</a></li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="#">品牌設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開品牌設計子選單" aria-expanded="false" aria-controls="overlay_submenu_brand"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_brand">
+                                <li><a href="rayze_design.html">睿氏設計</a></li>
+                                <li><a href="kiki_cafe.html">木其咖啡</a></li>
+                                <li><a href="click_web.html">科技紫微網</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="web_design.html">網頁設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開網頁設計子選單" aria-expanded="false" aria-controls="overlay_submenu_campaign"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_campaign">
+                                <li><a href="ziwei_year.html">紫微流年運勢</a></li>
+                                <li><a href="fate_family.html">當全家人的命理師</a></li>
+                                <li><a href="worldcoffeeday.html">國際咖啡日</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="graphic_design.html">平面設計</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開平面設計子選單" aria-expanded="false" aria-controls="overlay_submenu_graphic"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_graphic">
+                                <li><a href="media_post.html">社群圖文</a></li>
+                                <li><a href="card_design.html">名片設計</a></li>
+                                <li><a href="menu_design.html">型錄設計</a></li>
+                                <li><a href="poster_design.html">海報設計</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item has_submenu">
+                            <div class="overlay_row">
+                                <a class="overlay_link" href="photography.html">攝影集</a>
+                                <button type="button" class="overlay_arrow" aria-label="展開攝影集子選單" aria-expanded="false" aria-controls="overlay_submenu_photography"><span class="nav_caret" aria-hidden="true"></span></button>
+                            </div>
+                            <ul class="overlay_submenu" id="overlay_submenu_photography">
+                                <li><a href="portrait_photography.html">人像攝影</a></li>
+                                <li><a href="still_photography.html">靜物攝影</a></li>
+                                <li><a href="food_photography.html">美食攝影</a></li>
+                                <li><a href="activity_photography.html">活動紀錄</a></li>
+                            </ul>
+                        </li>
+                        <li class="overlay_item"><a class="overlay_link" href="contact.html">聯絡我</a></li>
+                    </ul>
+                </nav>
+                <div class="overlay_contact">
+                    <p class="contact_title">Email</p>
+                    <a class="contact_mail" href="mailto:adrianwang19@gmail.com">adrianwang19@gmail.com</a>
+                    <p class="contact_title">社群平台</p>
+                    <ul class="contact_social">
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="./images/icon/icon_instagram.svg" alt="" width="24" height="24"></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="./images/icon/icon_youtube.svg" alt="" width="24" height="24"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main_area">
+    <!-- ========== Hero ========== -->
+    <section id="chapter_hero">
+        <div class="hero_container contact_background">
+            <p class="font_en color_orange hero_sub_title">contact</p>
+            <h1>聯絡我</h1>
+            <div class="breadcrumb">
+                <ul class="breadcrumb_info">
+                    <li><a href="graphic_design.html">首頁</a></li>
+                    <li>聯絡我</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- ========== 專案一 ========== -->
+    <section id="project_contact">
+        <div class="wrap_container first_padding">
+            <!-- 專案區塊 -->
+            <div class="project_board_hero">
+                <!-- 21:9 專案橫幅 -->
+                <div class="board_bannerbox">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="./images/graphic_cover/contact_cover.webp" alt="" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="./images/graphic_cover/contact_cover.webp" alt="" loading="lazy">
+                        <img src="./images/graphic_cover/contact_cover.webp" alt="" loading="lazy" class="post_position">
+                    </picture>
+                </div>
+            </div>
+            <!-- 專案內文 -->
+            <div class="project_body">
+                <!-- 雙欄區塊 -->
+                <div class="project_info">
+                    <div class="project_item column_width_normal">
+                        <!-- 聯絡我項目區塊 -->
+                        <div class="contact_box">
+                            <div class="contact_item">
+                                <div class="contact_subtitle">contact</div>
+                                <div class="contact_maintitle">聯絡我</div>
+                                <div class="contact_descripition">
+                                    <p>這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述，這是一段聯絡我的文字敘述。</p>
+                                </div>
+                            </div>
+                            <!-- 項目群組 -->
+                            <div class="items_group">
+                                <!-- 網站 -->
+                                <div class="contact_icon_item">
+                                    <div class="item_icon"><span class="material-symbols-outlined">public</span></div>
+                                    <div class="item_icon_info">
+                                        <ul>
+                                            <li>網站</li>
+                                            <li>adriannote.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 電子郵件 -->
+                                <div class="contact_icon_item">
+                                    <div class="item_icon"><span class="material-symbols-outlined">mail</span></div>
+                                    <div class="item_icon_info">
+                                        <ul>
+                                            <li>Email</li>
+                                            <li>adrianwang19@gmail.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project_item column_width_normal">
+                        <!-- 撰寫表單區塊 -->
+                        <div id="contact_form">
+                            <!--
+                                表單設定說明（皆可直接在這裡修改，不需要改 JS）：
+                                data-success-reset-seconds：發送成功後，按鈕幾秒後恢復成「送出訊息」
+                                data-error-reset-seconds  ：發送失敗後，按鈕幾秒後恢復成「送出訊息」
+                                data-cooldown-seconds     ：成功送出後，幾秒內不能再次送出（防止連續洗版）
+                                data-min-fill-seconds     ：從第一次操作欄位算起，至少幾秒後才允許送出（過快視為機器人）
+                                data-timeout-seconds      ：送出請求超過幾秒沒有回應就視為失敗
+                            -->
+                            <form class="form_box" id="contact_form_element" action="https://api.web3forms.com/submit" method="POST" novalidate data-success-reset-seconds="5" data-error-reset-seconds="4" data-cooldown-seconds="30" data-min-fill-seconds="2" data-timeout-seconds="15">
+                                <!-- ★ Web3Forms Access Key 設定位置：請把 YOUR_ACCESS_KEY_HERE 換成你在 https://web3forms.com 取得的 Access Key -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                                <!-- 垃圾訊息蜜罐欄位（Web3Forms 官方 botcheck，請勿刪除；一般使用者看不到） -->
+                                <input type="checkbox" name="botcheck" class="form_honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                                <!-- 姓名 -->
+                                <div class="form_field">
+                                    <label class="form_label" for="contact_name">姓名</label>
+                                    <div class="form_control">
+                                        <span class="material-symbols-outlined form_icon" aria-hidden="true">person</span>
+                                        <input class="form_input" type="text" id="contact_name" name="name" placeholder="請輸入你的姓名或暱稱" autocomplete="name" maxlength="50" required aria-required="true" data-label="姓名" data-msg-required="請輸入你的姓名或暱稱">
+                                        <button type="button" class="form_clear" aria-label="清除姓名"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form_field">
+                                    <label class="form_label" for="contact_email">Email</label>
+                                    <div class="form_control">
+                                        <span class="material-symbols-outlined form_icon" aria-hidden="true">mail</span>
+                                        <input class="form_input" type="email" id="contact_email" name="email" placeholder="請輸入你的電子郵件信箱" autocomplete="email" autocapitalize="off" spellcheck="false" inputmode="email" maxlength="100" required aria-required="true" data-label="Email" data-msg-required="請輸入你的電子郵件信箱" data-msg-invalid="電子郵件格式不正確，例如：name@example.com">
+                                        <button type="button" class="form_clear" aria-label="清除 Email"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+                                    </div>
+                                </div>
+
+                                <!-- 主旨 -->
+                                <div class="form_field">
+                                    <label class="form_label" for="contact_subject">主旨</label>
+                                    <div class="form_control">
+                                        <span class="material-symbols-outlined form_icon" aria-hidden="true">label_important</span>
+                                        <input class="form_input" type="text" id="contact_subject" name="subject" placeholder="請輸入你想諮詢的主題" autocomplete="off" maxlength="100" required aria-required="true" data-label="主旨" data-msg-required="請輸入你想諮詢的主題">
+                                        <button type="button" class="form_clear" aria-label="清除主旨"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+                                    </div>
+                                </div>
+
+                                <!-- 訊息 -->
+                                <div class="form_field form_field_textarea">
+                                    <label class="form_label" for="contact_message">訊息</label>
+                                    <div class="form_control">
+                                        <span class="material-symbols-outlined form_icon" aria-hidden="true">notes</span>
+                                        <textarea class="form_input form_textarea" id="contact_message" name="message" rows="6" placeholder="請在這邊填寫你想說的話和建議，待送出訊息後我將盡快與您聯繫。" maxlength="2000" required aria-required="true" data-label="訊息" data-msg-required="請填寫你想說的話或建議"></textarea>
+                                        <button type="button" class="form_clear" aria-label="清除訊息"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="form_submit" id="contact_submit" data-state="idle">
+                                    <span class="submit_labels">
+                                        <span class="submit_label label_idle">送出訊息</span>
+                                        <span class="submit_label label_sending">發送中</span>
+                                        <span class="submit_label label_success">已發送</span>
+                                        <span class="submit_label label_error">發送失敗</span>
+                                    </span>
+                                    <span class="submit_icons" aria-hidden="true">
+                                        <span class="material-symbols-outlined submit_icon icon_sending">mail</span>
+                                        <span class="material-symbols-outlined submit_icon icon_success">check_circle</span>
+                                        <span class="material-symbols-outlined submit_icon icon_error">cancel</span>
+                                    </span>
+                                </button>
+
+                                <!-- 送出結果提示文字（{seconds} 會被自動換成剩餘秒數） -->
+                                <div class="form_status" id="contact_status" role="status" aria-live="polite"
+                                    data-msg-sending="訊息發送中，請稍候…"
+                                    data-msg-success="訊息已送出，感謝你的來信！我會盡快與你聯繫。"
+                                    data-msg-error="訊息送出失敗，請稍後再試，或改用下方 Email 直接聯絡我。"
+                                    data-msg-network="網路連線異常或逾時，訊息尚未送出，請檢查網路後再試，或改用下方 Email 直接聯絡我。"
+                                    data-msg-nokey="目前表單暫時無法使用，訊息尚未送出，請改用 Email 直接聯絡我。"
+                                    data-msg-spam="系統判定為異常操作，訊息尚未送出，請稍後再試。"
+                                    data-msg-cooldown="你剛剛已經送出過訊息，請約 {seconds} 秒後再試。">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========== Footer ========== -->
+<footer>
+    <div id="wrap_footer">
+        <div class="content_box">
+            <div class="footer_box">
+                <!-- 精選作品 -->
+                <div class="group_item order_primary">
+                    <div class="brand_icon"><a href="#">Adriannote</a></div>
+                    <ul class="item_linkbox">
+                        <li class="item_description">嗨👋🏻，我是一名網頁視覺設計師，擅長於網站活動視覺規劃以及整合品牌社群與行銷相關素材，這裡收錄我個人的創作及過往專案項目作品。</li>
+                    </ul>
+                </div>
+                <!-- 關於 -->
+                <div class="group_item">
+                    <p class="item_title color_silver">關於</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#">關於我</a></li>
+                        <li><a href="#">免責聲明</a></li>
+                        <li><a href="#">隱私權政策</a></li>
+                    </ul>
+                </div>
+                <!-- 精選作品 -->
+                <div class="group_item">
+                    <p class="item_title color_silver">精選作品</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#">品牌設計</a></li>
+                        <li><a href="media_post.html">社群圖文</a></li>
+                        <li><a href="card_design.html">名片設計</a></li>
+                        <li><a href="web_design.html">網頁設計</a></li>
+                    </ul>
+                </div>
+                <!-- 追蹤我 -->
+                <div class="group_item media_icon">
+                    <p class="item_title color_silver">社群平台</p>
+                    <ul class="item_linkbox">
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/icon/icon_instagram.svg" alt="" width="24" height="24"></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/icon/icon_youtube.svg" alt="" width="24" height="24"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright"><p>Copyright © 2026 Adriannote.</p></div>
+</footer>
+
+<!-- ========== 表單驗證彈跳視窗 ========== -->
+<div class="form_modal" id="form_modal" role="alertdialog" aria-modal="true" aria-labelledby="form_modal_title" aria-describedby="form_modal_desc">
+    <div class="form_modal_dialog">
+        <button type="button" class="glass_button form_modal_close" id="form_modal_close" aria-label="關閉視窗"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+        <div class="form_modal_body" tabindex="0">
+            <span class="material-symbols-outlined form_modal_icon" aria-hidden="true">error</span>
+            <h2 class="form_modal_title" id="form_modal_title">請確認表單內容</h2>
+            <p class="form_modal_desc" id="form_modal_desc">以下欄位尚未填寫完整或格式不正確，請修正後再送出：</p>
+            <ul class="form_modal_list" id="form_modal_list"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- ========== Script ========== -->
+<script src="js/navigation.js"></script>
+<script src="js/contact_form.js"></script>
+</body>
+</html>

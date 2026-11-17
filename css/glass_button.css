@@ -1,0 +1,150 @@
+/* ==========================================================
+   共用圓形玻璃按鈕（輪播左右換頁、燈箱換張與關閉、彈跳視窗關閉）
+   風格：透明偏亮的「液態玻璃」（純 CSS 版，Chrome / Safari / iOS / Android 外觀一致）
+
+   【這個效果由 5 層疊出來】
+   1. 底色：很淡的半透明深色，只用來保住圖示的可讀性（--glass-fill）
+   2. 背景模糊 + 提高飽和度與亮度：讓背後圖片的顏色透出來、偏暖偏亮（backdrop-filter）
+   3. 邊緣亮緣：1.5px 漸層外框，左上與右下較亮、中間較淡（::before）
+   4. 表面反光：兩團柔和的高光（::after）
+   5. 內陰影 + 外陰影：做出玻璃的厚度與立體感（box-shadow）
+
+   【想微調時，只改下面 4 個變數即可】
+   --glass-fill       ：底色。數字越大越深（透明度 0 ~ 1）。背景圖很亮時，圖示看不清楚就調高
+   --glass-blur       ：模糊程度。數字越大越模糊
+   --glass-saturate   ：飽和度。數字越大，背景透出的顏色越鮮豔
+   --glass-brightness ：亮度。大於 1 變亮，小於 1 變暗
+   ========================================================== */
+:root{
+    --glass-size:48px;
+}
+
+.glass_button{
+    --glass-fill:rgba(24, 24, 26, .26);
+    --glass-blur:10px;
+    --glass-saturate:180%;
+    --glass-brightness:1.05;
+    position: relative;
+    display: inline-flex;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    width: var(--glass-size);
+    height: var(--glass-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    /* isolation: isolate 讓按鈕自成一個層疊範圍，裡面的 z-index 不會影響到外面的元素 */
+    isolation: isolate;
+    background-color: var(--glass-fill);
+    /* 內陰影（上緣亮、下緣淡亮、整圈微光）做出玻璃厚度；最後一層是往下的外陰影 */
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, .55),
+        inset 0 -1px 1px rgba(255, 255, 255, .18),
+        inset 0 0 16px rgba(255, 255, 255, .10),
+        0 6px 20px rgba(0, 0, 0, .28);
+    color: var(--white-primary, #f8f8fa);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: all .3s ease-in-out;
+}
+
+/* 邊緣亮緣：用遮罩把中間挖空，只留下 1.5px 的一圈環。
+   漸層方向 135deg = 從左上到右下：左上最亮、右下次亮、中間最淡，像光線從左上打過來。
+   （若想還原成原本「右下黑 → 左上白」的框線，把下面 background 改成：
+     linear-gradient(to top left, #000000, #ffffff) 即可） */
+.glass_button::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.5px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .95) 0%,
+        rgba(255, 255, 255, .18) 38%,
+        rgba(255, 255, 255, .08) 60%,
+        rgba(255, 255, 255, .65) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* 表面反光：左上一團較大的高光、右下一團較小的高光（radial-gradient 由亮到透明） */
+.glass_button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 28% 22%, rgba(255, 255, 255, .38) 0%, rgba(255, 255, 255, 0) 52%),
+        radial-gradient(circle at 78% 86%, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, 0) 40%);
+    pointer-events: none;
+}
+
+/* 圖示要疊在反光層上面，所以給 position 與 z-index */
+.glass_button > *{
+    position: relative;
+    z-index: 1;
+}
+
+/* 圖示：加粗一點並加上淡淡的陰影，在亮色背景上也比較看得清楚 */
+.glass_button svg{
+    display: block;
+    width: 20px;
+    height: 20px;
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35));
+}
+
+.glass_button svg path{
+    stroke-width: 2.5;
+}
+
+/* Google Material Symbols 圖示（文字字型）用 text-shadow 加陰影 */
+.glass_button .material-symbols-outlined{
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .35);
+}
+
+.glass_button:active{
+    transform: scale(.94);
+}
+
+.glass_button:focus-visible{
+    outline: 2px solid var(--orange, #FF4200);
+    outline-offset: 3px;
+}
+
+@media (hover: hover){
+    .glass_button:hover{
+        color: var(--orange, #FF4200);
+    }
+}
+
+/* 手機版（沿用 768px 斷點）按鈕縮小為 44px，仍符合手指點擊範圍 */
+@media (max-width:768px){
+    :root{
+        --glass-size:44px;
+    }
+}
+
+/* 瀏覽器不支援毛玻璃時的備援：改用較深的不透明底色，確保圖示看得清楚 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+    .glass_button{
+        background-color: rgba(26, 26, 26, .72);
+    }
+}

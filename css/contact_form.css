@@ -1,0 +1,568 @@
+/* ==========================================================
+   聯絡表單樣式
+   - 欄位：深色底（--dark-blue）、無邊框，驗證錯誤時顯示紅色線框
+   - 清除按鈕：輸入文字後才出現在欄位最右側
+   - 送出按鈕：玻璃擬態，四種狀態（預設 / 發送中 / 成功 / 失敗）
+   顏色全部使用 base.css 已定義的變數，不另外新增色碼
+   ========================================================== */
+
+/* ---------- 區塊外距 ---------- */
+#contact_form{
+    width: 100%;
+}
+
+/* 電腦版（1300px 以上）左右雙欄：與左側文字拉開 30px 間距 */
+@media (min-width:1300px){
+    #contact_form{
+        padding-left: 30px;
+    }
+}
+
+/* 1299px 以下變成上下排列：與上方聯絡資訊拉開 40px 間距 */
+@media (max-width:1299px){
+    #contact_form{
+        margin-top: 40px;
+    }
+}
+
+#contact_form .form_box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+}
+
+/* ---------- 隱藏元素 ---------- */
+/* 蜜罐欄位：給機器人看、人看不到 */
+.form_honeypot{
+    display: none;
+}
+
+/* 只給讀屏軟體讀的標籤（視覺上隱藏，但不是 display:none，才讀得到） */
+.form_label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   輸入欄位
+   結構：.form_field > .form_control > [icon] [input] [清除按鈕]
+   ========================================================== */
+.form_control{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 0 12px 0 16px;
+    border-radius: 16px;
+    background-color: var(--dark-blue);
+    /* 預設沒有框線；紅框用 box-shadow 畫，這樣不會讓欄位尺寸跳動 */
+    box-shadow: 0 0 0 0 transparent;
+    transition: all .3s ease-in-out;
+}
+
+/* 聚焦時：用柔和的品牌色光暈提示（不是邊框），維持鍵盤使用者看得到目前位置 */
+.form_control:focus-within{
+    box-shadow: 0 0 0 3px rgba(255, 66, 0, .25);
+}
+
+/* 驗證錯誤：紅色線框（放在聚焦樣式之後，所以優先權較高） */
+.form_field.is_invalid .form_control,
+.form_field.is_invalid .form_control:focus-within{
+    box-shadow: inset 0 0 0 1.5px var(--red);
+}
+
+/* 欄位前方的圖示：品牌主色 */
+#contact_form .form_icon{
+    flex: none;
+    margin-right: 6px;
+    color: var(--orange);
+    font-size: 1.5rem;
+}
+
+.form_input{
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 56px;
+    margin: 0;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--white-primary);
+    font-family: var(--font-family-ch);
+    caret-color: var(--orange);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* 文字大小：base.css 已將 input / textarea 設為 16px，可避免 iOS Safari 點擊欄位時自動放大頁面 */
+
+.form_input::placeholder{
+    color: var(--gray-secondary);
+    opacity: 1;
+}
+
+/* 瀏覽器自動填入時，避免出現預設的淺黃色 / 白色底色 */
+.form_input:-webkit-autofill,
+.form_input:-webkit-autofill:hover,
+.form_input:-webkit-autofill:focus{
+    -webkit-text-fill-color: var(--white-primary);
+    -webkit-box-shadow: 0 0 0 1000px var(--dark-blue) inset;
+    caret-color: var(--orange);
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* 訊息欄位（多行） */
+.form_field_textarea .form_control{
+    align-items: flex-start;
+}
+
+#contact_form .form_field_textarea .form_icon{
+    margin-top: 16px;
+}
+
+.form_textarea{
+    height: auto;
+    min-height: 160px;
+    padding: 16px 8px;
+    line-height: 1.6;
+    resize: none;
+}
+
+/* ---------- 清除按鈕 ---------- */
+/* 預設隱藏（opacity 0 + visibility hidden，隱藏時鍵盤 Tab 也不會選到它） */
+.form_clear{
+    flex: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--gray-secondary);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: all .3s ease-in-out;
+}
+
+/* 欄位有文字時（JS 會加上 has_value）才顯示 */
+.form_control.has_value .form_clear{
+    opacity: 1;
+    visibility: visible;
+}
+
+#contact_form .form_clear .material-symbols-outlined{
+    color: inherit;
+    font-size: 1.25rem;
+}
+
+.form_field_textarea .form_clear{
+    margin-top: 10px;
+}
+
+.form_clear:focus-visible{
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+}
+
+/* 滑鼠 hover 只在有滑鼠的裝置套用，避免手機點擊後卡在 hover 狀態 */
+@media (hover: hover){
+    .form_clear:hover{
+        background-color: rgba(255, 255, 255, .08);
+        color: var(--white-primary);
+    }
+}
+
+/* ==========================================================
+   送出按鈕（玻璃擬態 + 四種狀態）
+
+   【運作方式】
+   1. HTML 裡，按鈕內有 3 個圖示（發送中、成功、失敗）、4 組文字，各自「疊在同一格」。預設狀態沒有圖示。
+   2. JS 只會改一個屬性：button 的 data-state="idle | sending | success | error"。
+   3. 這裡的 CSS 只讓「目前狀態」對應的圖示與文字顯示，其他的透明、模糊、位移並隱藏。
+   4. 因為每個項目都有 transition，狀態一改變，文字就會「模糊淡出 + 新文字模糊淡入」，
+      看起來像是「送出訊息」逐漸變成「發送中」。
+   ========================================================== */
+.form_submit{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    width: 100%;
+    min-width: 200px;
+    height: 56px;
+    margin: 0;
+    padding: 0 32px;
+    border: 0;
+    border-radius: 999px;
+    /* isolation: isolate 讓按鈕自成一個層疊範圍，裡面的 z-index 不會影響到外面的元素 */
+    isolation: isolate;
+    /* 液態玻璃風格（與圓形按鈕、導覽列相同）：
+       底色 → 背景模糊與提亮 → 邊緣亮緣(::before) → 表面反光(::after) → 內外陰影。
+       因為表單背景本來就很深，底色改用淡淡的白色半透明，才看得出玻璃質感。
+       想微調時改下面 4 個變數：--glass-fill 底色、--glass-blur 模糊、--glass-saturate 飽和度、--glass-brightness 亮度 */
+    --glass-fill: rgba(255, 255, 255, .10);
+    --glass-blur: 10px;
+    --glass-saturate: 180%;
+    --glass-brightness: 1.05;
+    /* 狀態色環：預設透明，成功時變綠、失敗時變紅（見下方各狀態）。因為放在 box-shadow 裡，所以也會有 .3 秒過渡 */
+    --submit-state-ring: rgba(255, 255, 255, 0);
+    background-color: var(--glass-fill);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, .55),
+        inset 0 -1px 1px rgba(255, 255, 255, .18),
+        inset 0 0 16px rgba(255, 255, 255, .10),
+        inset 0 0 0 1.5px var(--submit-state-ring),
+        0 6px 20px rgba(0, 0, 0, .28);
+    color: var(--white-primary);
+    font-family: var(--font-family-ch);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    /* all：按鈕背景、色環顏色等任何變化都會在 .3 秒內平順過渡 */
+    transition: all .3s ease-in-out;
+}
+
+/* 邊緣亮緣：用遮罩把中間挖空，只留下 1.5px 的一圈漸層環（左上最亮、右下次亮、中間最淡） */
+.form_submit::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.5px;
+    border-radius: 999px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .95) 0%,
+        rgba(255, 255, 255, .18) 38%,
+        rgba(255, 255, 255, .08) 60%,
+        rgba(255, 255, 255, .65) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* 表面反光：左上與右下各一團柔和的高光（寬扁的按鈕用橢圓形漸層） */
+.form_submit::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 999px;
+    background-image:
+        radial-gradient(ellipse 45% 120% at 10% 0%, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, 0) 100%),
+        radial-gradient(ellipse 30% 110% at 94% 100%, rgba(255, 255, 255, .12) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+/* 圖示區與文字區要疊在反光層上面 */
+.form_submit > *{
+    position: relative;
+    z-index: 1;
+}
+
+.form_submit:disabled{
+    cursor: default;
+}
+
+.form_submit:focus-visible{
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+}
+
+/* ---------- 圖示區：3 個圖示疊在同一格（發送中 / 成功 / 失敗；預設狀態沒有圖示） ---------- */
+.submit_icons{
+    /* inline-grid + grid-area: 1 / 1：讓所有子元素都放在「第 1 列第 1 欄」，也就是互相疊在一起 */
+    display: inline-grid;
+    width: 1.5rem;
+    height: 1.5rem;
+    /* 圖示與文字的間距寫在這裡（而不是用 gap），這樣預設狀態把這塊縮成 0 時，間距也會一起消失 */
+    margin-right: 12px;
+    transition: all .3s ease-in-out;
+}
+
+/* 預設狀態（送出訊息）：沒有圖示，把圖示區的寬度與間距縮成 0，文字才會在按鈕中央。
+   切換到發送中 / 成功 / 失敗時，寬度會在 .3 秒內展開，文字會平順地往右讓出圖示的位置 */
+.form_submit[data-state="idle"] .submit_icons{
+    width: 0;
+    margin-right: 0;
+}
+
+.submit_icon{
+    grid-area: 1 / 1;
+    place-self: center;
+    /* 預設（非目前狀態）：透明 + 模糊 + 往下 8px + 不可見 */
+    opacity: 0;
+    visibility: hidden;
+    -webkit-filter: blur(6px);
+    filter: blur(6px);
+    transform: translateY(8px);
+    transition: all .3s ease-in-out;
+}
+
+/* 這裡用 .form_submit 開頭，是為了讓優先權高於 contact.css 對 .material-symbols-outlined 的設定（字級、顏色） */
+.form_submit .submit_icon{
+    font-size: 1.5rem;
+}
+
+.form_submit .icon_success{
+    color: var(--green);
+}
+
+.form_submit .icon_error{
+    color: var(--red);
+}
+
+/* ---------- 文字區：4 組文字疊在同一格 ---------- */
+.submit_labels{
+    display: inline-grid;
+}
+
+.submit_label{
+    grid-area: 1 / 1;
+    place-self: center;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-filter: blur(6px);
+    filter: blur(6px);
+    transform: translateY(8px);
+    transition: all .3s ease-in-out;
+}
+
+/* ---------- 目前狀態：顯示對應的圖示與文字 ----------
+   用屬性選擇器 [data-state="xxx"] 判斷目前狀態：
+   visibility 會被 transition 平順處理，隱藏的項目不會被讀屏軟體讀到，也不會被點擊 */
+.form_submit[data-state="idle"] .label_idle,
+.form_submit[data-state="sending"] .icon_sending,
+.form_submit[data-state="sending"] .label_sending,
+.form_submit[data-state="success"] .icon_success,
+.form_submit[data-state="success"] .label_success,
+.form_submit[data-state="error"] .icon_error,
+.form_submit[data-state="error"] .label_error{
+    opacity: 1;
+    visibility: visible;
+    -webkit-filter: none;
+    filter: none;
+    transform: translateY(0);
+}
+
+/* ---------- 各狀態的按鈕外觀 ---------- */
+/* 發送中：信件圖示上下浮動（animation 見下方 @keyframes） */
+.form_submit[data-state="sending"] .icon_sending{
+    animation: submit_mail_float 1s ease-in-out infinite;
+}
+
+/* 成功：綠色色環 + 打勾圖示彈出 */
+.form_submit[data-state="success"]{
+    --submit-state-ring: rgba(114, 207, 38, .55);
+}
+
+.form_submit[data-state="success"] .icon_success{
+    animation: submit_icon_pop .45s ease-out;
+}
+
+/* 失敗：紅色色環 + 打叉圖示彈出 */
+.form_submit[data-state="error"]{
+    --submit-state-ring: rgba(228, 47, 47, .55);
+}
+
+.form_submit[data-state="error"] .icon_error{
+    animation: submit_icon_pop .45s ease-out;
+}
+
+/* hover：僅限有滑鼠的裝置、且只在預設狀態 */
+@media (hover: hover){
+    .form_submit[data-state="idle"]:hover{
+        color: var(--orange);
+    }
+}
+
+/* 按下去的瞬間縮小一點，給使用者回饋 */
+.form_submit[data-state="idle"]:active{
+    transform: scale(.98);
+}
+
+/* 動畫定義：
+   submit_mail_float：從原位 → 往上 4px → 回到原位，無限重複
+   submit_icon_pop  ：從 0.4 倍放大到 1.15 倍，再回到 1 倍（彈跳感） */
+@keyframes submit_mail_float{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-4px);}
+    100%{transform: translateY(0);}
+}
+
+@keyframes submit_icon_pop{
+    0%{transform: scale(.4);}
+    70%{transform: scale(1.15);}
+    100%{transform: scale(1);}
+}
+
+/* ==========================================================
+   送出結果提示文字
+   永遠存在於畫面（讓讀屏軟體可以朗讀變動），沒有文字時高度為 0 並收合
+   ========================================================== */
+.form_status{
+    display: block;
+    max-height: 0;
+    margin: -16px 0 0 0;
+    padding: 0 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, .06);
+    color: var(--white-secondary);
+    font-size: .95rem;
+    line-height: 1.6;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+/* 有文字時展開（JS 會加上 is_visible） */
+.form_status.is_visible{
+    max-height: 200px;
+    margin: 0;
+    padding: 14px 16px;
+    opacity: 1;
+}
+
+.form_status[data-type="success"]{
+    color: var(--green);
+}
+
+.form_status[data-type="error"]{
+    color: var(--white-primary);
+    box-shadow: inset 0 0 0 1px rgba(228, 47, 47, .55);
+}
+
+/* ---------- 備用 Email 連結 ---------- */
+.form_fallback{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    color: var(--white-secondary);
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+#contact_form .form_fallback .material-symbols-outlined{
+    font-size: 1.25rem;
+}
+
+.form_mail_link{
+    color: var(--white-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all .3s ease-in-out;
+}
+
+.form_mail_link:focus-visible{
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+}
+
+@media (hover: hover){
+    .form_mail_link:hover{
+        color: var(--orange);
+    }
+}
+
+/* ==========================================================
+   手機版（沿用 768px 斷點）
+   ========================================================== */
+@media (max-width:768px){
+    #contact_form .form_box{
+        gap: 14px;
+    }
+
+    .form_control{
+        min-height: 52px;
+        padding: 0 8px 0 14px;
+    }
+
+    .form_input{
+        height: 52px;
+    }
+
+    .form_textarea{
+        min-height: 140px;
+    }
+
+    /* 手機版送出按鈕滿版，方便手指點擊 */
+    .form_submit{
+        align-self: stretch;
+        width: 100%;
+        height: 54px;
+    }
+
+    .form_status{
+        margin-top: -14px;
+    }
+
+    .form_status.is_visible{
+        margin-top: 0;
+    }
+}
+
+/* 瀏覽器不支援毛玻璃時的備援：改用較深的不透明底色，確保文字看得清楚 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))){
+    .form_submit{
+        background-color: rgba(60, 60, 64, .9);
+    }
+}
+
+/* ==========================================================
+   使用者系統設定為「減少動態效果」時：關閉動畫、縮短過渡時間
+   ========================================================== */
+@media (prefers-reduced-motion: reduce){
+    .form_control,
+    .form_clear,
+    .form_submit,
+    .submit_icons,
+    .submit_icon,
+    .submit_label,
+    .form_status{
+        transition-duration: .01ms;
+    }
+
+    .form_submit[data-state="sending"] .icon_sending,
+    .form_submit[data-state="success"] .icon_success,
+    .form_submit[data-state="error"] .icon_error{
+        animation: none;
+    }
+}
